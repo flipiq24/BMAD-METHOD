@@ -255,17 +255,42 @@ Enable every Acquisition Associate (AA) to reliably close **two deals per month*
 | Phase | Timeline | Scope |
 |-------|----------|-------|
 | **Phase 1** | Complete | AA1-AA4 bots, DMaster, PIQ, D1-D3 (9 bots) |
-| **Phase 2** | December 2024 | AA0, D4-D8, MGT1-3, M1-M5, C1-C4, IAMaster, Com1 (19 bots) |
+| **Phase 2a** | December 2024 | My Stats, D4-D8, CMaster, C1, C2, C4, IAMaster, Com1 (12 bots) |
+| **Phase 2b** | January 2025 | AA0, MGT1-3, M1-M5 (9 bots) |
 | **Phase 3** | Q1 2025 | C3, IARehab, SuperMaster, User AI Personalization (4 bots + personalization engine) |
 
-### 7.2 Technical Constraints
+### 7.2 December 2024 Priority (Phase 2a)
+
+**Goal:** Ship the Deal Machine for 7 operators by Dec 31.
+
+| Priority | Bot | Purpose |
+|----------|-----|---------|
+| P0 | My Stats | AA/Principal performance dashboard |
+| P0 | D4 (Notes) | Deal context and history |
+| P0 | D5 (Reminders) | Zero missed follow-ups |
+| P0 | D6 (Activity) | Automatic interaction logging |
+| P0 | D7 (Post Call) | Transcription + coaching |
+| P0 | D8 (Close Report) | Post-deal learning |
+| P0 | CMaster | Comp orchestration |
+| P0 | C1 (Map) | Visual comp validation |
+| P0 | C2 (Matrix) | Statistical analysis |
+| P0 | C4 (AI Mapping) | Photo-based condition adjustment |
+| P0 | IAMaster | Investment analysis |
+| P0 | Com1 | Auto-follow-up sequences |
+
+**Deferred to January (Phase 2b):**
+- AA0 (Universal Interface) - Voice/NLP complexity
+- MGT1-3 (Management) - My Stats covers basic needs
+- M1-M5 (Marketing) - Not critical for 7 operators
+
+### 7.3 Technical Constraints
 
 1. **Command Platform Dependency**: Must overlay without modifying Command database
 2. **API Rate Limits**: PropertyRadar, MLS APIs have usage limits
 3. **Real-time Requirements**: Check-in and pipeline updates must be <2 seconds
 4. **Browser Compatibility**: Chrome, Safari, Firefox support required
 
-### 7.3 Business Constraints
+### 7.4 Business Constraints
 
 1. **Revenue Model**: 0.5% of flip purchase + 10% of wholesale profit
 2. **Scaling Target**: 500 operators by Q2 2025

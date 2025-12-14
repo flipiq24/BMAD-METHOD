@@ -1,7 +1,38 @@
-# Decisions for Nate - FlipIQ Technical Review
+# Decisions for Nate - FlipIQ CTO Handoff
 
 **Created:** December 2024
+**Updated:** December 14, 2024
 **Purpose:** Track decisions, UI proposals, and technical questions requiring Nate's input
+
+---
+
+## December Sprint Summary
+
+**Goal:** Ship the Deal Machine for 7 operators by Dec 31
+
+**Handoff Documents:**
+- `docs/december-sprint-plan.md` - Complete sprint plan with specs
+- `implementation-artifacts/sprint-status.yaml` - Dev tracking
+- `planning-artifacts/PRD.md` - Updated Phase 2a/2b breakdown
+
+**December Scope (12 bots):**
+- My Stats, D4-D8, CMaster, C1, C2, C4, IAMaster, Com1
+
+**Deferred to January:**
+- AA0 (Voice), MGT1-3 (Management), M1-M5 (Marketing)
+
+---
+
+## BLOCKING DECISIONS (Need by Dec 16)
+
+These 4 decisions block December development:
+
+| # | Decision | Blocks | Recommendation |
+|---|----------|--------|----------------|
+| 1 | Transcription service | D7 (Post Call) | OpenAI Whisper - already have OpenAI |
+| 2 | Mapping service | C1 (Map Review) | Mapbox or Google Maps |
+| 3 | SMS service | Com1 (Auto Connect) | Twilio or existing? |
+| 4 | Vision API | C4 (AI Mapping) | OpenAI Vision - already have OpenAI |
 
 ---
 
