@@ -106,7 +106,18 @@ FlipIQ is an AI-powered overlay system that enhances the existing Command platfo
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.2 User Roles & Access
+### 2.2 AI Overlay Positions by Module
+
+| Module | AI Overlay Position |
+|--------|---------------------|
+| Comp Map | Below the map |
+| Comp Matrix | Above the table |
+| Comp List | Sidebar on right |
+| Investment Analysis | Below main content |
+| Agent Review | Overlay |
+| PIQ | Same as Daily Outreach 30 agent call section |
+
+### 2.3 User Roles & Access
 
 | Role | Count | Access Level | Primary Interface |
 |------|-------|--------------|-------------------|
@@ -136,10 +147,22 @@ FlipIQ is an AI-powered overlay system that enhances the existing Command platfo
 | Overlay UI | Web Components | Portable, framework-agnostic |
 | Backend | Node.js + Express | Fast development, async I/O |
 | Bot Engine | Python + LangChain | AI/ML ecosystem |
+| **LLM** | **OpenAI GPT-4** | **Best quality over cost** |
+| **Voice** | **OpenAI Realtime API** | **Real-time voice input** |
+| **Transcription** | **TBD (Whisper likely)** | **No call recording - transcription only** |
 | Cache | Redis | Sub-ms latency |
 | Queue | RabbitMQ | Reliable message delivery |
 | Database | PostgreSQL | FlipIQ-specific data only |
 | Search | Elasticsearch | Property/agent search |
+
+### 3.3 Platform Constraints
+
+| Constraint | Decision |
+|------------|----------|
+| Mobile Support | No - Desktop optimized |
+| Offline Mode | No - Internet required |
+| Keyboard Shortcuts | No - Not needed |
+| A/B Testing | No - Not planned |
 
 ---
 
@@ -352,9 +375,38 @@ FlipIQ is an AI-powered overlay system that enhances the existing Command platfo
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.2 Integration Specifications
+### 5.2 Microservices Architecture
 
-#### MLS Integration
+**All external integrations are being built as internal microservices:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     FlipIQ MICROSERVICES LAYER                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ┌──────────────────────┐   ┌──────────────────────┐   ┌─────────────────┐  │
+│  │   National Data      │   │   Agent Reports      │   │ Command Reader  │  │
+│  │   Microservice       │   │   Microservice       │   │ Microservice    │  │
+│  │   ──────────────     │   │   ──────────────     │   │ ──────────────  │  │
+│  │   PropertyRadar      │   │   DispoPro           │   │ Command DB      │  │
+│  │   wrapper            │   │   (Our Product)      │   │ (TBD by Nate)   │  │
+│  │                      │   │                      │   │                 │  │
+│  │   • Distress signals │   │   • Agent-investor   │   │   • Property    │  │
+│  │   • Tax data         │   │     relationships    │   │     data        │  │
+│  │   • Foreclosure      │   │   • Transaction      │   │   • User data   │  │
+│  │   • Vacancy          │   │     history          │   │   • Settings    │  │
+│  │                      │   │   • Lender/Title     │   │                 │  │
+│  │   Status: Building   │   │     relationships    │   │   Status: TBD   │  │
+│  │                      │   │                      │   │                 │  │
+│  │                      │   │   Status: Building   │   │                 │  │
+│  └──────────────────────┘   └──────────────────────┘   └─────────────────┘  │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.3 Integration Specifications
+
+#### MLS Integration (Direct)
 
 | Aspect | Specification |
 |--------|---------------|
@@ -365,27 +417,29 @@ FlipIQ is an AI-powered overlay system that enhances the existing Command platfo
 | Rate Limit | 50k/day |
 | Fallback | 15-minute cache |
 
-#### PropertyRadar Integration
+#### PropertyRadar (via National Data Microservice)
 
 | Aspect | Specification |
 |--------|---------------|
-| Protocol | REST API |
-| Auth | API Key |
+| Protocol | Internal REST API |
+| Auth | Service-to-service |
 | Sync | Real-time lookup |
 | Data | inForeclosure, NoticeOfDefault, isTaxDefaulted, AffidavitOfDeath, Bankruptcy, isSiteVacant, EstimatedEquity |
-| Rate Limit | 10k/day |
+| Rate Limit | Managed by microservice |
 | Fallback | 24-hour cache |
 
-#### Agent365 Integration
+#### DispoPro Agent Reports (via Agent Reports Microservice)
 
 | Aspect | Specification |
 |--------|---------------|
-| Protocol | REST API |
-| Auth | API Key |
-| Sync | Batch every 6 hours |
-| Data | InvestorSourceCount, LastClosingDate, DoubleEndedCount, TransactionHistory, TopInvestorPartners |
-| Rate Limit | 5k/day |
+| Protocol | Internal REST API |
+| Auth | Service-to-service |
+| Sync | On-demand + 6-hour batch refresh |
+| Data | InvestorSourceCount, LastClosingDate, DoubleEndedCount, TransactionHistory, TopInvestorPartners, LenderRelationships, TitleCompanyRelationships |
+| Rate Limit | Managed by microservice |
 | Fallback | 7-day cache |
+
+**Note:** DispoPro is FlipIQ's own product - provides comprehensive agent intelligence including every agent who has worked with an investor, transaction histories, and relationships with lenders/title companies.
 
 ---
 
@@ -469,9 +523,12 @@ FlipIQ is an AI-powered overlay system that enhances the existing Command platfo
 
 ### 6.2 DFI Calculation Model
 
+**Note:** DFI is calculated ON-DEMAND when property is viewed, NOT as a nightly batch job.
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    DEAL FOCUS INDEX (DFI) CALCULATION                       │
+│                           (Calculated On-Demand)                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  DFI = [FixerCondition] + [InventoryStage] + [SellerPainLevel] + [Agent]   │

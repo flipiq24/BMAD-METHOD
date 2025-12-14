@@ -251,6 +251,47 @@ track: 'BMad Method'
 **I want** 30 high-propensity properties selected for me
 **So that** I focus on the best opportunities
 
+**Bot Details:**
+- Bot_ID: AA3
+- UI Location: Dashboard → Daily Outreach
+- UI Element: "Let's Build Relationships While Finding Deals"
+- Trigger: Click/Auto (after AA2)
+
+**Data Inputs:**
+| Source | Field | Usage |
+|--------|-------|-------|
+| MLS | caretslistingstatus | Filter: Active (≥70 DOM), Pending, Backup only |
+| MLS | dom/cdom | Days on Market - filter aged listings (≥70 days) |
+| MLS | ptfv | Price-to-Future-Value % → (listprice/future_value) * 100 |
+| MLS | keywords[].keyword | Distress indicators (as-is, tenant, court, heir, vacant, probate) |
+| MLS | price_change | Price reduction indicator |
+| Tax | confidence_score | Propensity-to-Sell Score (0-8) |
+| PIQ | offer_status | Must = "None" - exclude all where offer_status ≠ "None" |
+| PIQ | assigned | Boolean - property must be Assigned = Yes (Phase 1) |
+| PIQ | relationship_status | Agent classification (Priority/Hot/Warm/Cold) |
+| PIQ | investor_source_count | From DispoPro - higher = higher ranking |
+
+**Processing Logic:**
+
+*Phase 1 - Assigned Properties:*
+1. Only include where: offer_status = "None" AND assigned = Yes
+2. Prioritize by Relationship Status: Priority → Hot → Warm → Cold
+3. Filter by property status: Active (≥70 DOM) → Backup → Pending
+4. Sort by PTFV (lowest first = highest discount)
+5. Apply Keyword and Propensity weighting
+6. Highest Investor Source Count first
+
+*Phase 2 - Unassigned Properties (after assigned exhausted):*
+1. Prioritize agents with highest Investor Source Count
+2. Filter by property status: Active (≥70 DOM) → Backup → Pending
+3. Sort by PTFV (lowest first)
+4. Apply Keyword and Propensity weighting
+
+*Auto-Remove Logic:*
+- Remove when: offer_status ≠ "None" OR assigned = False
+
+**Important:** Counts CONVERSATIONS not calls. Must connect with agent to count toward 30.
+
 **Acceptance Criteria:**
 1. Given Deal Review completes, when AA3 activates, then 30 properties are selected ✅
 2. Given selection runs, when filtering, then Assigned agents are prioritized (Priority → Hot → Warm → Cold) ✅
