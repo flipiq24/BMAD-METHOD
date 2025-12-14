@@ -51,6 +51,7 @@ track: 'BMad Method'
 | FR-030 | Repair Calculator Bot (IARehab) | Epic 8 | P0 |
 | FR-031 | Auto Connect Bot (Com1) | Epic 9 | P1 |
 | FR-032 | Super Admin Bot (SuperMaster) | Epic 10 | P0 |
+| FR-033 | User AI Personalization Engine | Epic 13 | P0 |
 
 ### Non-Functional Requirements Coverage
 
@@ -1472,6 +1473,128 @@ track: 'BMad Method'
 
 ---
 
+### Epic 13: User AI Personalization
+
+**Goal:** Enable users to customize bot behavior, upload buy boxes, and fine-tune AI output to their preferences.
+
+**Phase:** 3 (Q1 2025)
+**Priority:** P0
+**Estimated Stories:** 6
+
+#### Story 13.1: Buy Box Upload & Storage
+
+**As an** AA/Principal
+**I want** to upload my buy box criteria
+**So that** the system filters and evaluates properties against my specific investment criteria
+
+**Acceptance Criteria:**
+1. Given I access settings, when I upload buy box, then criteria is stored per user
+2. Given buy box includes price range, property type, markets, quality tier, when saved, then Investment Analysis uses these defaults
+3. Given I modify buy box, when saving, then changes apply to future analyses immediately
+
+**Tasks:**
+- [ ] Create buy box configuration UI
+- [ ] Build criteria storage schema
+- [ ] Integrate with Investment Analysis bot
+- [ ] Add validation rules
+
+---
+
+#### Story 13.2: Bot Output Customization
+
+**As an** AA
+**I want** to fine-tune how the AI communicates with me
+**So that** outputs match my preferred style and verbosity
+
+**Acceptance Criteria:**
+1. Given I access AI settings, when I adjust tone (professional/casual), then all bot responses reflect preference
+2. Given I set verbosity (brief/detailed), when bots respond, then length matches preference
+3. Given I preview changes, when viewing sample output, then I see personalized result before saving
+
+**Tasks:**
+- [ ] Build tone/verbosity settings UI
+- [ ] Create output style templates
+- [ ] Implement preview functionality
+- [ ] Apply settings across all bots
+
+---
+
+#### Story 13.3: Custom Script Templates
+
+**As an** AA
+**I want** to create and edit my own script templates
+**So that** agent outreach reflects my personal style
+
+**Acceptance Criteria:**
+1. Given I access script settings, when I edit a template, then my version is used instead of baseline
+2. Given I create a new script for Tier 1 agents, when saved, then AA3/AA4 use my script
+3. Given I reset a script, when confirmed, then baseline is restored
+
+**Tasks:**
+- [ ] Build script template editor
+- [ ] Store custom scripts per user
+- [ ] Override logic in script generation
+- [ ] Implement reset functionality
+
+---
+
+#### Story 13.4: Preference Learning Engine
+
+**As a** System
+**I want** to collect data points from user actions
+**So that** recommendations improve over time based on user behavior
+
+**Acceptance Criteria:**
+1. Given user accepts/rejects recommendations, when logged, then future recommendations are weighted
+2. Given user consistently skips certain property types, when analyzing, then those are deprioritized
+3. Given user has high success with certain scripts, when generating, then those patterns are emphasized
+
+**Tasks:**
+- [ ] Design data collection schema
+- [ ] Build preference weighting algorithm
+- [ ] Implement feedback loop
+- [ ] Add explainability for recommendations
+
+---
+
+#### Story 13.5: Investment Criteria Defaults
+
+**As an** AA
+**I want** my ROI targets, renovation budgets, and hold periods saved
+**So that** Investment Analysis auto-populates with my preferences
+
+**Acceptance Criteria:**
+1. Given I set default ROI target of 12%, when opening Investment Analysis, then 12% is pre-filled
+2. Given I set quality tier renovation budgets, when analyzing property in that tier, then budget auto-populates
+3. Given I modify defaults, when saved, then future analyses use new values
+
+**Tasks:**
+- [ ] Create investment defaults UI
+- [ ] Store per-user investment preferences
+- [ ] Auto-populate Investment Analysis
+- [ ] Handle tier-specific defaults
+
+---
+
+#### Story 13.6: Personalization Dashboard
+
+**As an** AA/Principal
+**I want** a single dashboard to manage all my AI personalizations
+**So that** I can easily view and modify my settings
+
+**Acceptance Criteria:**
+1. Given I open Personalization Dashboard, when viewing, then all customizations are visible
+2. Given I want to reset everything, when clicking "Reset All", then baseline is restored with confirmation
+3. Given I export my settings, when downloading, then JSON file contains all preferences
+
+**Tasks:**
+- [ ] Build unified personalization dashboard
+- [ ] Implement reset all functionality
+- [ ] Add export/import feature
+- [ ] Create settings summary view
+
+---
+
 ## Summary
 
 | Epic | Stories | Phase | Priority | Status |
@@ -1488,11 +1611,12 @@ track: 'BMad Method'
 | Epic 10: Enterprise Scale | 6 | 3 | P0 | Ready |
 | Epic 11: Security & Compliance | 4 | 2-3 | P0 | Ready |
 | Epic 12: Data Integrations | 5 | 1-2 | P0 | 80% Complete |
+| Epic 13: User AI Personalization | 6 | 3 | P0 | Ready |
 
-**Total Stories:** 71
+**Total Stories:** 77
 **Complete:** ~15 stories
 **Ready for Phase 2:** ~45 stories
-**Ready for Phase 3:** ~11 stories
+**Ready for Phase 3:** ~17 stories
 
 ---
 

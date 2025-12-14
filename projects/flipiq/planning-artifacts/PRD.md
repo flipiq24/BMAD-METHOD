@@ -256,7 +256,7 @@ Enable every Acquisition Associate (AA) to reliably close **two deals per month*
 |-------|----------|-------|
 | **Phase 1** | Complete | AA1-AA4 bots, DMaster, PIQ, D1-D3 (9 bots) |
 | **Phase 2** | December 2024 | AA0, D4-D8, MGT1-3, M1-M5, C1-C4, IAMaster, Com1 (19 bots) |
-| **Phase 3** | Q1 2025 | C3, IARehab, SuperMaster (4 bots) |
+| **Phase 3** | Q1 2025 | C3, IARehab, SuperMaster, User AI Personalization (4 bots + personalization engine) |
 
 ### 7.2 Technical Constraints
 
@@ -641,6 +641,39 @@ Enable every Acquisition Associate (AA) to reliably close **two deals per month*
 | FR-032.1 | Enterprise tracking | All companies, teams, individuals |
 | FR-032.2 | Executive dashboard | C-level visibility |
 | FR-032.3 | 375+ operator scale | Support 375+ concurrent operators |
+
+### FR-033: User AI Personalization Engine
+
+**Priority:** P0 (Phase 3)
+**User:** All users
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|-------------------|
+| FR-033.1 | Buy Box Upload | User uploads buy box criteria (price range, property type, markets, quality tier) → stored per user |
+| FR-033.2 | Bot Output Customization | User fine-tunes AI output style (tone, verbosity, script preferences) → applied to all bot responses |
+| FR-033.3 | Preference Learning | System collects data points from user actions → refines recommendations over time |
+| FR-033.4 | Custom Script Templates | User creates/edits script templates → AI uses personalized scripts instead of baseline |
+| FR-033.5 | Agent Approach Preferences | User sets preferred communication style per agent tier → scripts reflect preferences |
+| FR-033.6 | Investment Criteria Storage | User stores ROI targets, renovation budgets, hold periods → Investment Analysis auto-populates |
+| FR-033.7 | AI Output Preview | User previews customized AI output before saving → confirms personalization is correct |
+| FR-033.8 | Reset to Baseline | User can reset any bot to baseline behavior → removes all customizations |
+
+**Key Data Points Collected for Personalization:**
+- Deal outcomes (success/fail patterns)
+- Script usage and effectiveness
+- Agent relationship progression
+- Time spent per module
+- Offer acceptance rates
+- Preferred communication channels
+- Market focus areas
+- Property type preferences
+
+**Personalization Scope:**
+- AA1-AA4 Daily Process Bots: Tone, script style, prioritization weights
+- D1-D8 Deal Analysis Bots: Analysis depth, report format, recommendation style
+- CMaster Comp Bots: Bucket weighting, outlier tolerance, clustering preferences
+- IAMaster Investment Bots: ROI targets, risk tolerance, buy box criteria
+- Agent Scripts: Communication style, value proposition emphasis, closing approach
 
 ---
 
