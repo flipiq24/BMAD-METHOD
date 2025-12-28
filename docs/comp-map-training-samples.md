@@ -1,251 +1,211 @@
 # Comp Map Overlay - Training Samples
 ## OpenAI Assistant Output Examples
+### Aligned with PIQ UI Format (v2.0)
 
 ---
 
-# SAMPLE 1: Strong Comp Set - Same Tract
+# OUTPUT FORMAT REFERENCE
+
+Based on actual PIQ interface, the bot must generate:
+
+1. **ABC Summary** - Three columns (PROPERTY, LOT, LOCATION)
+2. **KEEP Comps** - With confidence badges and ✓ match bullets
+3. **REMOVE Comps** - With confidence badges and ✗ mismatch bullets
+
+---
+
+# SAMPLE 1: Golf Course Community - Terra Lago
 
 ## Input Context
-- **Subject:** 1234 Oak Street, Phoenix AZ 85048
-- **Subject Specs:** 2,100 sqft, 4bd/2ba, Pool, Built 2005
-- **Subject Tract:** Ahwatukee Foothills Unit 12
-- **Target Condition:** FLIP
-- **Comps Provided:** 8 pre-filtered comps
+- **Subject:** 84100 Terra Lago Pkwy, Indio CA 92203
+- **Subject Specs:** 1,876 sqft, 4bd/2ba, Pool: Yes, Built 2005
+- **Subject Tract:** Terra Lago
+- **Subject Features:** Golf course front, 3-car garage, Solar owned
+- **Comps Provided:** 4 pre-filtered comps
 
 ---
 
 ## Bot Output
 
-### Comp Set Assessment
+### ABC SUMMARY
 
-| Strength | Reason | Action |
-|----------|--------|--------|
-| **STRONG** | 5 of 8 comps in same tract with good status coverage | **PROCEED** |
-
----
-
-### Ranked Comps
-
-#### #1 — KEEP
-**1248 Oak Street** | SOLD | 0.1 mi | FLIP
-
-- Same tract (Ahwatukee Foothills Unit 12)
-- Condition aligned: recent flip with similar renovation scope
-- Pool present, matching subject
-- Interior lot position, same as subject
-
-*To verify condition details, go to Property Details → Condition Notes*
+| PROPERTY | LOT | LOCATION |
+|----------|-----|----------|
+| **Garage: 3-car attached** | **Pool: In-ground heated** | **Golf Course: Front adjacency** |
+| 2 comps have 2-car — extra capacity adds appeal | 1 comp has no pool — pool changes buyer pool | Premium positioning — 2 comps are interior |
+| **Solar: Owned** | **Lot Shape: Rectangular** | **Tract: Terra Lago** |
+| Owned solar adds value vs leased or none | Standard usable lot, no constraints | All comps same tract — strong anchor |
+| | | **HOA: Guard gated** |
+| | | Community amenities included |
 
 ---
 
-#### #2 — KEEP
-**1301 Maple Drive** | SOLD | 0.2 mi | FLIP
+### KEEP (2 comps)
 
-- Same tract (Ahwatukee Foothills Unit 12)
-- Condition aligned: sold as flip within 90 days
-- Same school district (Kyrene)
+```
+☐ 84303 Eremo Way                     Confidence: High         $499K  SOLD
+  Single Family / 4 Br / 2 Ba / 3 cars / 2005 / 2,122 ft² / 7,841 ft² / Pool: Yes
 
-*To verify renovation scope, go to Property Details → Remarks*
+  ✓ Best comp - Model match, same tract
+  ✓ Golf course front like subject
+  ✓ Flip condition - best ARV baseline
+  ✓ CONDITION: Standard — 0.44 mi from subject
 
----
+  ✓ WHY KEPT: Best comp - Model match, same tract
+```
 
-#### #3 — KEEP
-**1189 Oak Street** | PENDING | 0.15 mi | GOOD
+```
+☐ 84521 Terra Lago Pkwy               Confidence: High         $650K  SOLD
+  Single Family / 4 Br / 3 Ba / 2 cars / 2007 / 2,276 ft² / 8,500 ft² / Pool: No
 
-- Same tract (Ahwatukee Foothills Unit 12)
-- Condition: GOOD (not FLIP, but well-maintained)
-- Fills pending status coverage
+  ✓ Same tract (Terra Lago)
+  ✓ Recent flip with good condition
+  ✓ Bed/bath close match (4/3 vs 4/2)
+  ✓ CONDITION: Standard — 0.62 mi from subject
 
-*To update condition assessment, go to Property Details → Condition*
-
----
-
-#### #4 — KEEP
-**1422 Pine Court** | ACTIVE | 0.3 mi | FLIP
-
-- Same tract (Ahwatukee Foothills Unit 12)
-- Condition aligned: listed as renovated
-- Fills active status coverage
-- Corner lot (subject is interior)
+  ✓ WHY KEPT: Same tract (Terra Lago)
+```
 
 ---
 
-#### #5 — KEEP
-**1567 Elm Avenue** | SOLD | 0.4 mi | GOOD
+### REMOVE (2 comps)
 
-- Same tract (Ahwatukee Foothills Unit 12)
-- Condition: GOOD (secondary anchor)
-- Pool present, matching subject
+**LOWER RELEVANCE**
 
----
+```
+☐ 84892 Lago Way                      Confidence: Weak         $800K  SOLD
+  Single Family / 5 Br / 3 Ba / 3 cars / 2010 / 2,500 ft² / 10,000 ft² / Pool: Yes
 
-#### #6 — KEEP
-**1890 Cedar Lane** | PENDING | 0.35 mi | FLIP
+  ✗ 5BR/3BA - Subject is 4BR/2BA, different buyer pool
+  ✗ 378 sqft larger than subject
+  ✗ Lot 2,159 sqft larger - affects value comparison
+  ✗ CONDITION: Standard — 0.85 mi from subject
 
-- Same tract (Ahwatukee Foothills Unit 12)
-- Condition aligned: flip
-- Additional pending for status depth
+  ✗ WHY REMOVED: 5BR/3BA - Subject is 4BR/2BA, different buyer pool
+```
 
----
+```
+☐ 84312 Avenue 43                     Confidence: Weak         $565K  SOLD
+  Single Family / 4 Br / 2 Ba / 2 cars / 2004 / 2,054 ft² / 6,800 ft² / Pool: No
 
-#### #7 — REMOVE (Lower Relevance)
-**2234 Birch Road** | SOLD | 0.6 mi | ORIGINAL
+  ✗ NO POOL - Subject has pool
+  ✗ NOT golf course location
+  ✗ Interior street location
+  ✗ CONDITION: Standard — 1.2 mi from subject
 
-- Different tract (Ahwatukee Foothills Unit 8)
-- Condition mismatch: ORIGINAL, not aligned with FLIP target
-- Crosses major subdivision boundary
-
-*Retained in list for reference. To restore, click KEEP.*
-
----
-
-#### #8 — REMOVE (Lower Relevance)
-**2890 Willow Street** | ACTIVE | 0.8 mi | FIXER
-
-- Different tract (Lakewood Unit 3)
-- Condition mismatch: FIXER serves as context only
-- Different school district (Tempe Union)
-
-*Retained in list for reference. To restore, click KEEP.*
-
----
-
-### Summary
-6 comps retained (3 Sold, 2 Pending, 1 Active) — all within subject tract. Strong alignment for ARV analysis.
+  ✗ WHY REMOVED: NO POOL - Subject has pool
+```
 
 ---
 ---
 
-# SAMPLE 2: Moderate Comp Set - Tract Mismatches
+# SAMPLE 2: Tract Mismatch Scenario - Eastmark
 
 ## Input Context
-- **Subject:** 5678 Desert Vista, Scottsdale AZ 85260
-- **Subject Specs:** 2,800 sqft, 5bd/3ba, No Pool, Built 2010
-- **Subject Tract:** DC Ranch Parcel 4.2
-- **Target Condition:** FLIP
-- **Comps Provided:** 10 pre-filtered comps
+- **Subject:** 3456 Suburban Lane, Mesa AZ 85212
+- **Subject Specs:** 1,800 sqft, 4bd/2ba, Pool: Yes, Built 2015
+- **Subject Tract:** Eastmark Phase 3
+- **Subject Features:** Interior lot, 2-car garage
+- **Comps Provided:** 6 pre-filtered comps
 
 ---
 
 ## Bot Output
 
-### Comp Set Assessment
+### ABC SUMMARY
 
-| Strength | Reason | Action |
-|----------|--------|--------|
-| **MODERATE** | Only 2 comps in subject tract; others cross HOA boundaries | **PROCEED with caution** |
-
----
-
-### Ranked Comps
-
-#### #1 — KEEP
-**5702 Desert Vista** | SOLD | 0.08 mi | FLIP
-
-- Same tract (DC Ranch Parcel 4.2)
-- Same HOA (DC Ranch Community Council)
-- Condition aligned: confirmed flip via transaction history
-- No pool, matching subject
-
-*To verify flip confirmation, go to Property Details → Transaction History*
+| PROPERTY | LOT | LOCATION |
+|----------|-----|----------|
+| **Garage: 2-car attached** | **Pool: Standard** | **Tract: Eastmark Phase 3** |
+| All comps match garage capacity | 2 comps have no pool — affects buyer pool | 4 comps same tract — 2 cross to Phase 2 |
+| | **Lot Size: 5,500 sqft** | **HOA: Eastmark Community** |
+| | 1 comp has larger lot (7,200 sqft) | All comps same HOA umbrella |
 
 ---
 
-#### #2 — KEEP
-**5544 Mirabel Club** | SOLD | 0.25 mi | FLIP
+### KEEP (4 comps)
 
-- Same tract (DC Ranch Parcel 4.2)
-- Condition aligned: renovated per remarks
-- Guard-gated community, same as subject
+```
+☐ 3478 Suburban Lane                  Confidence: High         $485K  SOLD
+  Single Family / 4 Br / 2 Ba / 2 cars / 2016 / 1,825 ft² / 5,400 ft² / Pool: Yes
 
----
+  ✓ Same street as subject
+  ✓ Same tract (Eastmark Phase 3)
+  ✓ Pool present, matching subject
+  ✓ Closest comp - 0.05 mi
+  ✓ CONDITION: Flip — 0.05 mi from subject
 
-#### #3 — KEEP
-**5890 Thompson Peak** | PENDING | 0.4 mi | GOOD
+  ✓ WHY KEPT: Same street, same tract, best proximity
+```
 
-- Different tract (DC Ranch Parcel 5.1)
-- Same HOA umbrella (DC Ranch)
-- Condition: GOOD (not FLIP, secondary anchor)
-- Fills pending status coverage
+```
+☐ 3401 Community Drive                Confidence: High         $479K  SOLD
+  Single Family / 4 Br / 2 Ba / 2 cars / 2015 / 1,790 ft² / 5,600 ft² / Pool: Yes
 
-*Note: Different parcel within DC Ranch. Similar buyer pool but micro-location differs.*
+  ✓ Same tract (Eastmark Phase 3)
+  ✓ Pool present, matching subject
+  ✓ Interior lot like subject
+  ✓ CONDITION: Flip — 0.1 mi from subject
 
----
+  ✓ WHY KEPT: Same tract, feature aligned
+```
 
-#### #4 — KEEP
-**6012 Pinnacle Vista** | ACTIVE | 0.5 mi | FLIP
+```
+☐ 3520 Festival Way                   Confidence: High         $492K  PENDING
+  Single Family / 4 Br / 2 Ba / 2 cars / 2015 / 1,810 ft² / 5,500 ft² / Pool: Yes
 
-- Different tract (DC Ranch Parcel 5.1)
-- Same HOA umbrella (DC Ranch)
-- Condition aligned: flip
-- Fills active status coverage
+  ✓ Same tract (Eastmark Phase 3)
+  ✓ Pool present, matching subject
+  ✓ Fills pending status coverage
+  ✓ CONDITION: Good — 0.12 mi from subject
 
----
+  ✓ WHY KEPT: Same tract, pending status needed
+```
 
-#### #5 — KEEP
-**6234 Blue Sky Trail** | SOLD | 0.55 mi | FLIP
+```
+☐ 3180 Desert Trails                  Confidence: High         $475K  ACTIVE
+  Single Family / 4 Br / 2 Ba / 2 cars / 2014 / 1,750 ft² / 5,800 ft² / Pool: Yes
 
-- Different tract (Grayhawk Raptor)
-- Different HOA (Grayhawk)
-- Condition aligned: flip
-- Guard-gated community, comparable tier
+  ✓ Adjacent tract (Eastmark Phase 2)
+  ✓ Same HOA umbrella
+  ✓ Pool present, matching subject
+  ✓ Fills active status coverage
+  ✓ CONDITION: Good — 0.3 mi from subject
 
-*Note: Grayhawk is similar market segment but different community. Use with awareness.*
-
----
-
-#### #6 — KEEP
-**6501 Dynamite Blvd** | PENDING | 0.6 mi | GOOD
-
-- Different tract (Grayhawk Talon)
-- Different HOA (Grayhawk)
-- Condition: GOOD
-- Backs to golf course (subject does not)
-
-*Location note: Golf course adjacency may create premium not applicable to subject.*
-
----
-
-#### #7 — REMOVE (Redundant)
-**5920 Thompson Peak** | SOLD | 0.45 mi | FLIP
-
-- Different tract (DC Ranch Parcel 5.1)
-- Redundant: #3 and #4 already cover this tract with better recency
-- Older sale date (5 months vs 2 months)
+  ✓ WHY KEPT: Same HOA, fills active status
+```
 
 ---
 
-#### #8 — REMOVE (Redundant)
-**6180 Blue Sky Trail** | SOLD | 0.52 mi | FLIP
+### REMOVE (2 comps)
 
-- Different tract (Grayhawk Raptor)
-- Redundant: #5 already covers this tract with closer proximity
-- Similar condition and features
+**LOWER RELEVANCE**
 
----
+```
+☐ 3890 Market Street                  Confidence: Weak         $510K  SOLD
+  Single Family / 4 Br / 2 Ba / 2 cars / 2016 / 1,840 ft² / 7,200 ft² / Pool: No
 
-#### #9 — REMOVE (Lower Relevance)
-**7100 E Carefree Hwy** | SOLD | 1.1 mi | ORIGINAL
+  ✗ NO POOL - Subject has pool
+  ✗ Lot 1,700 sqft larger than subject
+  ✗ Corner lot exposure (subject is interior)
+  ✗ CONDITION: Good — 0.5 mi from subject
 
-- Different tract (Desert Mountain)
-- Condition mismatch: ORIGINAL
-- Different HOA tier (Desert Mountain private club)
-- Crosses Scottsdale Rd barrier
+  ✗ WHY REMOVED: NO POOL - Subject has pool
+```
 
----
+**REDUNDANT**
 
-#### #10 — REMOVE (Lower Relevance)
-**4521 N Pima Road** | ACTIVE | 1.3 mi | FIXER
+```
+☐ 3945 Community Drive                Confidence: Weak         $472K  SOLD
+  Single Family / 4 Br / 2 Ba / 2 cars / 2015 / 1,780 ft² / 5,500 ft² / Pool: Yes
 
-- Different tract (Kierland)
-- Condition mismatch: FIXER
-- Non-gated community (subject is guard-gated)
-- Different buyer pool segment
+  ✗ Same tract but farther than #2
+  ✗ Older sale date (6 months vs 2 months)
+  ✗ Similar features to better-ranked comp
+  ✗ CONDITION: Good — 0.55 mi from subject
 
----
-
-### Summary
-6 comps retained. Only 2 in subject tract — consider this limitation when presenting ARV. Grayhawk comps included for market context but note HOA difference.
+  ✗ WHY REMOVED: Redundant - closer comp with same features exists
+```
 
 ---
 ---
@@ -254,454 +214,390 @@
 
 ## Input Context
 - **Subject:** 890 Mountain View Road, Flagstaff AZ 86001
-- **Subject Specs:** 1,600 sqft, 3bd/2ba, No Pool, Built 1985
+- **Subject Specs:** 1,600 sqft, 3bd/2ba, Pool: No, Built 1985
 - **Subject Tract:** Flagstaff Ranch Unit 2
-- **Target Condition:** FLIP
-- **Comps Provided:** 4 pre-filtered comps
+- **Comps Provided:** 3 pre-filtered comps
 
 ---
 
 ## Bot Output
 
-### Comp Set Assessment
+### ⚠️ COMP SET WARNING
 
-| Strength | Reason | Action |
-|----------|--------|--------|
-| **WEAK** | Only 4 comps available; no pending status coverage; limited tract data | **EXPAND FILTERS** |
+| Strength | Reason | Recommendation |
+|----------|--------|----------------|
+| **WEAK** | Only 3 comps available — below minimum of 6 | **EXPAND FILTERS** |
 
----
-
-### Expansion Recommendations
-
-| Priority | Filter | Current | Suggested | Potential New Comps |
-|----------|--------|---------|-----------|---------------------|
-| 1 | Distance | 0.5 mi | 1.0 mi | +3 estimated |
-| 2 | COE Days | 180 | 365 | +2 estimated |
-| 3 | Year Built | 1980-1990 | 1975-1995 | +2 estimated |
-
-*Click "Apply Expansion" to preview additional comps on map*
+**Suggested Expansions:**
+1. Distance: 0.5 mi → 1.0 mi (+3 potential comps)
+2. COE Days: 180 → 365 (+2 potential comps)
 
 ---
 
-### Ranked Comps
+### ABC SUMMARY
 
-#### #1 — KEEP
-**912 Mountain View Road** | SOLD | 0.1 mi | GOOD
-
-- Same tract (Flagstaff Ranch Unit 2)
-- Condition: GOOD (no FLIP available in tract)
-- Closest comp to subject
-- Similar vintage (1987)
-
-*Note: No FLIP comps available in tract. GOOD condition used as primary anchor.*
-
-*To update condition, go to Property Details → Condition*
+| PROPERTY | LOT | LOCATION |
+|----------|-----|----------|
+| **Garage: 2-car attached** | **Pool: None** | **Tract: Flagstaff Ranch Unit 2** |
+| All comps match | Market norm for area | 2 comps same tract — 1 adjacent |
+| **Year Built: 1985** | | **School District: Flagstaff Unified** |
+| Similar vintage (1980-1990) | | All comps same district |
 
 ---
 
-#### #2 — KEEP
-**845 Pine Cone Lane** | SOLD | 0.3 mi | ORIGINAL
+### KEEP (3 comps)
 
-- Same tract (Flagstaff Ranch Unit 2)
-- Condition: ORIGINAL (data limited market)
-- Retained due to tract match despite condition gap
+```
+☐ 912 Mountain View Road              Confidence: High         $425K  SOLD
+  Single Family / 3 Br / 2 Ba / 2 cars / 1987 / 1,650 ft² / 8,000 ft² / Pool: No
 
-*Note: ORIGINAL condition retained because market is data limited (<3 sold in tract within 180 days).*
+  ✓ Same tract (Flagstaff Ranch Unit 2)
+  ✓ Same street as subject
+  ✓ Similar vintage (1987 vs 1985)
+  ✓ No pool, matching subject
+  ✓ CONDITION: Good — 0.1 mi from subject
+
+  ✓ WHY KEPT: Best comp - same street, same tract
+```
+
+```
+☐ 845 Pine Cone Lane                  Confidence: High         $410K  SOLD
+  Single Family / 3 Br / 2 Ba / 2 cars / 1983 / 1,580 ft² / 7,500 ft² / Pool: No
+
+  ✓ Same tract (Flagstaff Ranch Unit 2)
+  ✓ Similar sqft (1,580 vs 1,600)
+  ✓ CONDITION: Original — 0.3 mi from subject
+
+  ✓ WHY KEPT: Same tract, data limited market
+```
+
+```
+☐ 1020 Forest Trail                   Confidence: High         $440K  ACTIVE
+  Single Family / 3 Br / 2 Ba / 2 cars / 1988 / 1,700 ft² / 8,500 ft² / Pool: No
+
+  ✓ Same tract (Flagstaff Ranch Unit 2)
+  ✓ Only active status available
+  ✓ Similar vintage
+  ✓ CONDITION: Good — 0.4 mi from subject
+
+  ✓ WHY KEPT: Fills active status coverage
+```
 
 ---
 
-#### #3 — KEEP
-**1020 Forest Trail** | ACTIVE | 0.4 mi | GOOD
+### REMOVE (0 comps)
 
-- Same tract (Flagstaff Ranch Unit 2)
-- Condition: GOOD
-- Only active status comp available
-- Fills active coverage
+*No comps removed — set is below minimum. All available comps retained.*
 
 ---
 
-#### #4 — KEEP
-**780 Aspen Way** | SOLD | 0.5 mi | ORIGINAL
+### STATUS COVERAGE
 
-- Different tract (Flagstaff Ranch Unit 1)
-- Condition: ORIGINAL
-- Retained for sold status depth despite condition gap
-
-*Location note: Unit 1 is adjacent subdivision with similar characteristics.*
-
----
-
-### Status Coverage Gap
-
-| Status | Count | Minimum | Gap |
-|--------|-------|---------|-----|
-| Sold | 3 | 3 | ✓ Met |
-| Pending | 0 | 1 | ✗ Missing |
+| Status | Count | Minimum | Status |
+|--------|-------|---------|--------|
+| Sold | 2 | 3 | ⚠️ Below minimum |
+| Pending | 0 | 1 | ❌ Missing |
 | Active | 1 | 1 | ✓ Met |
 
-**Recommendation:** Expand distance filter to 1.0 mi to capture pending comps from adjacent areas.
-
----
-
-### Summary
-4 comps retained but set is WEAK. No FLIP condition comps available. No pending status coverage. Recommend filter expansion before ARV analysis.
-
 ---
 ---
 
-# SAMPLE 4: Pruning Required - Over 12 Comps
-
-## Input Context
-- **Subject:** 3456 Suburban Lane, Mesa AZ 85212
-- **Subject Specs:** 1,800 sqft, 4bd/2ba, Pool, Built 2015
-- **Subject Tract:** Eastmark Phase 3
-- **Target Condition:** FLIP
-- **Comps Provided:** 18 pre-filtered comps
-
----
-
-## Bot Output
-
-### Comp Set Assessment
-
-| Strength | Reason | Action |
-|----------|--------|--------|
-| **STRONG** | Abundant comps in tract; pruned from 18 to 11 | **PROCEED** |
-
----
-
-### Pruning Applied
-
-| Original Count | Final Count | Pruned |
-|----------------|-------------|--------|
-| 18 | 11 | 7 |
-
-**Pruning Logic Applied:**
-1. Removed 3 farther distance duplicates (kept closest)
-2. Removed 2 older sale dates (kept most recent)
-3. Removed 2 weaker condition matches (kept FLIP/GOOD over ORIGINAL)
-
-*Click "Show All 18 Comps" to view pruned comps*
-
----
-
-### Ranked Comps
-
-#### #1 — KEEP
-**3478 Suburban Lane** | SOLD | 0.05 mi | FLIP
-
-- Same tract (Eastmark Phase 3)
-- Same street as subject
-- Condition aligned: confirmed flip
-- Pool present, matching subject
-- Sold within 45 days
-
----
-
-#### #2 — KEEP
-**3401 Community Drive** | SOLD | 0.1 mi | FLIP
-
-- Same tract (Eastmark Phase 3)
-- Condition aligned: flip per transaction history
-- Pool present
-- Interior lot, same as subject
-
----
-
-#### #3 — KEEP
-**3520 Festival Way** | SOLD | 0.12 mi | FLIP
-
-- Same tract (Eastmark Phase 3)
-- Condition aligned: renovated listing
-- Pool present
-- Sold within 60 days
-
----
-
-#### #4 — KEEP
-**3389 Market Street** | PENDING | 0.08 mi | FLIP
-
-- Same tract (Eastmark Phase 3)
-- Condition aligned: flip
-- Pool present
-- Best pending comp available
-
----
-
-#### #5 — KEEP
-**3445 Park Promenade** | PENDING | 0.15 mi | GOOD
-
-- Same tract (Eastmark Phase 3)
-- Condition: GOOD (secondary)
-- No pool (subject has pool)
-- Fills pending depth
-
-*Feature note: No pool — adjust comparison accordingly.*
-
----
-
-#### #6 — KEEP
-**3560 Eastmark Pkwy** | ACTIVE | 0.2 mi | FLIP
-
-- Same tract (Eastmark Phase 3)
-- Condition aligned: flip
-- Pool present
-- Best active comp available
-
----
-
-#### #7 — KEEP
-**3612 Signal Butte** | ACTIVE | 0.25 mi | FLIP
-
-- Same tract (Eastmark Phase 3)
-- Condition aligned: flip
-- Pool present
-- Corner lot (subject is interior)
-
----
-
-#### #8 — KEEP
-**3298 Gather Drive** | SOLD | 0.18 mi | GOOD
-
-- Same tract (Eastmark Phase 3)
-- Condition: GOOD (not FLIP)
-- Pool present
-- Provides GOOD condition baseline
-
----
-
-#### #9 — KEEP
-**3701 Festival Way** | PENDING | 0.22 mi | GOOD
-
-- Same tract (Eastmark Phase 3)
-- Condition: GOOD
-- Pool present
-- Additional pending depth
-
----
-
-#### #10 — KEEP
-**3180 Desert Trails** | SOLD | 0.3 mi | FLIP
-
-- Adjacent tract (Eastmark Phase 2)
-- Same HOA (Eastmark Community)
-- Condition aligned: flip
-- Retained for additional sold depth
-
----
-
-#### #11 — KEEP
-**3055 Elliot Road** | ACTIVE | 0.35 mi | GOOD
-
-- Adjacent tract (Eastmark Phase 2)
-- Same HOA (Eastmark Community)
-- Condition: GOOD
-- Busy street frontage (Elliot Rd arterial)
-
-*Location note: Elliot Road frontage — traffic exposure may affect value.*
-
----
-
-### Pruned Comps (Click to Expand)
-
-| Address | Status | Distance | Reason Pruned |
-|---------|--------|----------|---------------|
-| 3890 Market Street | SOLD | 0.5 mi | Farther duplicate of #2 |
-| 3945 Community Drive | SOLD | 0.55 mi | Farther duplicate of #3 |
-| 3820 Festival Way | SOLD | 0.48 mi | Farther duplicate of #3 |
-| 3678 Park Promenade | PENDING | 0.4 mi | Older date than #4, #5 |
-| 3756 Gather Drive | PENDING | 0.42 mi | Older date than #9 |
-| 3290 Suburban Lane | SOLD | 0.35 mi | ORIGINAL condition |
-| 3412 Desert Trails | ACTIVE | 0.5 mi | ORIGINAL condition |
-
----
-
-### Summary
-11 comps retained (5 Sold, 3 Pending, 3 Active). Excellent tract coverage with strong FLIP alignment. 7 redundant comps pruned automatically.
-
----
----
-
-# SAMPLE 5: Micro-Market Barriers Present
+# SAMPLE 4: Micro-Market Barrier Detection
 
 ## Input Context
 - **Subject:** 7890 West Camelback, Glendale AZ 85303
-- **Subject Specs:** 1,400 sqft, 3bd/2ba, No Pool, Built 1978
+- **Subject Specs:** 1,400 sqft, 3bd/2ba, Pool: No, Built 1978
 - **Subject Tract:** Westgate Terrace
-- **Target Condition:** FLIP
-- **Comps Provided:** 9 pre-filtered comps
+- **Comps Provided:** 5 pre-filtered comps
 
 ---
 
 ## Bot Output
 
-### Comp Set Assessment
+### ABC SUMMARY
 
-| Strength | Reason | Action |
-|----------|--------|--------|
-| **MODERATE** | Strong tract comps but several cross major arterial barriers | **PROCEED with caution** |
-
----
-
-### Micro-Market Barriers Detected
-
-| Barrier | Type | Comps Affected |
-|---------|------|----------------|
-| Camelback Road | Major Arterial (6 lanes) | #6, #7 |
-| Grand Avenue | Diagonal Arterial | #8 |
-| Glendale Ave | Major Arterial (4 lanes) | #9 |
-
-*Comps crossing barriers may reflect different micro-market pricing.*
+| PROPERTY | LOT | LOCATION |
+|----------|-----|----------|
+| **Garage: 2-car attached** | **Pool: None** | **Tract: Westgate Terrace** |
+| 1 comp has 1-car — capacity difference | Market norm for area | 3 comps same tract — 2 cross barriers |
+| **Year Built: 1978** | **Lot Size: 6,500 sqft** | **⚠️ BARRIER: Camelback Road** |
+| Range 1975-1985 across comps | Standard for tract | 2 comps north of 6-lane arterial |
 
 ---
 
-### Ranked Comps
+### KEEP (3 comps)
 
-#### #1 — KEEP
-**7856 West Camelback** | SOLD | 0.08 mi | FLIP
+```
+☐ 7856 West Camelback                 Confidence: High         $345K  SOLD
+  Single Family / 3 Br / 2 Ba / 2 cars / 1980 / 1,450 ft² / 6,200 ft² / Pool: No
 
-- Same tract (Westgate Terrace)
-- Same side of Camelback Road as subject
-- Condition aligned: flip confirmed
-- Similar vintage (1980)
+  ✓ Same tract (Westgate Terrace)
+  ✓ Same side of Camelback Road
+  ✓ No barrier crossing
+  ✓ CONDITION: Flip — 0.08 mi from subject
 
-*Best comp — same tract, no barriers, condition aligned.*
+  ✓ WHY KEPT: Best comp - same tract, no barriers
+```
 
----
+```
+☐ 7912 West Montecito                 Confidence: High         $338K  SOLD
+  Single Family / 3 Br / 2 Ba / 2 cars / 1978 / 1,380 ft² / 6,500 ft² / Pool: No
 
-#### #2 — KEEP
-**7912 West Montecito** | SOLD | 0.12 mi | FLIP
+  ✓ Same tract (Westgate Terrace)
+  ✓ Same side of Camelback Road
+  ✓ Same vintage as subject
+  ✓ CONDITION: Good — 0.12 mi from subject
 
-- Same tract (Westgate Terrace)
-- Same side of Camelback Road
-- Condition aligned: flip
-- Interior street (quieter than subject)
+  ✓ WHY KEPT: Same tract, same side of barrier
+```
 
----
+```
+☐ 7780 West Palmaire                  Confidence: High         $352K  PENDING
+  Single Family / 3 Br / 2 Ba / 2 cars / 1982 / 1,480 ft² / 6,800 ft² / Pool: No
 
-#### #3 — KEEP
-**7780 West Palmaire** | PENDING | 0.15 mi | GOOD
+  ✓ Same tract (Westgate Terrace)
+  ✓ Same side of Camelback Road
+  ✓ Fills pending status
+  ✓ CONDITION: Good — 0.15 mi from subject
 
-- Same tract (Westgate Terrace)
-- Same side of Camelback Road
-- Condition: GOOD (not FLIP)
-- Fills pending status
-
----
-
-#### #4 — KEEP
-**7945 West Montecito** | ACTIVE | 0.18 mi | FLIP
-
-- Same tract (Westgate Terrace)
-- Same side of Camelback Road
-- Condition aligned: flip
-- Fills active status
+  ✓ WHY KEPT: Same tract, fills pending status
+```
 
 ---
 
-#### #5 — KEEP
-**8010 West Palmaire** | SOLD | 0.2 mi | GOOD
+### REMOVE (2 comps)
 
-- Same tract (Westgate Terrace)
-- Same side of Camelback Road
-- Condition: GOOD
-- Provides secondary anchor
+**LOWER RELEVANCE**
 
----
+```
+☐ 7750 West Bethany Home              Confidence: Weak         $365K  SOLD
+  Single Family / 3 Br / 2 Ba / 2 cars / 1979 / 1,420 ft² / 6,400 ft² / Pool: No
 
-#### #6 — KEEP (with note)
-**7750 West Bethany Home** | SOLD | 0.35 mi | FLIP
+  ✗ CROSSES BARRIER: North of Camelback Road (6-lane arterial)
+  ✗ Different tract (Bethany Estates)
+  ✗ Different school zone (Washington vs Pendergast)
+  ✗ CONDITION: Flip — 0.35 mi from subject
 
-- Different tract (Bethany Estates)
-- **CROSSES BARRIER: North of Camelback Road**
-- Condition aligned: flip
-- Different school zone (Washington Elementary vs Pendergast)
+  ✗ WHY REMOVED: Crosses Camelback Road barrier - different micro-market
+```
 
-*Barrier note: This comp is north of Camelback Rd (6-lane arterial). Micro-market pricing may differ. Use with awareness.*
+```
+☐ 7680 West Georgia                   Confidence: Weak         $355K  ACTIVE
+  Single Family / 3 Br / 2 Ba / 1 car / 1976 / 1,350 ft² / 6,000 ft² / Pool: No
 
-*To adjust school district, go to Property Details → Location*
+  ✗ CROSSES BARRIER: North of Camelback Road
+  ✗ Different tract (Georgia Heights)
+  ✗ 1-car garage (subject has 2-car)
+  ✗ CONDITION: Original — 0.4 mi from subject
 
----
-
-#### #7 — KEEP (with note)
-**7680 West Georgia** | PENDING | 0.4 mi | FLIP
-
-- Different tract (Georgia Heights)
-- **CROSSES BARRIER: North of Camelback Road**
-- Condition aligned: flip
-- Retained for pending depth
-
-*Barrier note: North of Camelback Rd. Consider proximity discount when comparing.*
-
----
-
-#### #8 — REMOVE (Lower Relevance)
-**6890 North 79th Ave** | SOLD | 0.6 mi | FLIP
-
-- Different tract (Grand Terrace)
-- **CROSSES BARRIER: West of Grand Avenue**
-- Condition aligned but location significantly different
-- Grand Avenue creates strong pricing break
-
-*Grand Avenue barrier typically creates 5-10% pricing differential in this area.*
-
----
-
-#### #9 — REMOVE (Lower Relevance)
-**8234 West Glendale Ave** | ACTIVE | 0.7 mi | ORIGINAL
-
-- Different tract (Glendale Heights)
-- **CROSSES BARRIER: North of Glendale Avenue**
-- Condition mismatch: ORIGINAL
-- Busy street frontage (Glendale Ave)
-- Different school district
-
----
-
-### Map Legend
-- 🔴 Subject Property
-- 🟢 KEEP — Same side of barriers
-- 🟡 KEEP — Crosses barrier (use with note)
-- ⚪ REMOVE — Crosses major barrier + other issues
-
----
-
-### Summary
-7 comps retained (3 Sold, 2 Pending, 2 Active). 5 comps are on same side of all barriers (strongest). 2 comps cross Camelback Rd — use with micro-market awareness. Grand Avenue and Glendale Ave barriers exclude 2 comps.
+  ✗ WHY REMOVED: Crosses barrier + garage capacity mismatch
+```
 
 ---
 ---
 
-# TRAINING NOTES FOR ASSISTANT
+# SAMPLE 5: High-Volume Pruning Required
 
-## Key Behaviors to Learn
-
-1. **Ranking is by RELEVANCE, never price** — Notice samples never mention $/sqft as ranking factor
-
-2. **Silence = Correct** — Variables only mentioned when relevant (e.g., pool only mentioned when it differs)
-
-3. **KEEP vs REMOVE reasons are distinct:**
-   - Lower Relevance = structural/location mismatch
-   - Redundant = better-aligned comp exists
-
-4. **Tract matching is highest priority** — Same tract comps always rank higher
-
-5. **Barriers create notes, not automatic removal** — Comps crossing barriers can be KEEP with warning
-
-6. **Condition hierarchy:** FLIP → GOOD → ORIGINAL → FIXER
-
-7. **Status coverage matters:** Always try to maintain Sold + Pending + Active representation
-
-8. **Manual update guidance included** — Each sample shows "To update X, go to Y" language
-
-9. **Comp Set Strength drives action:**
-   - STRONG → PROCEED
-   - MODERATE → PROCEED with caution
-   - WEAK → EXPAND FILTERS
-
-10. **Pruning is deterministic** — When >12 comps, pruning order is: Distance → Date → Condition → Features
+## Input Context
+- **Subject:** 5678 Desert Vista, Scottsdale AZ 85260
+- **Subject Specs:** 2,800 sqft, 5bd/3ba, Pool: Yes, Built 2010
+- **Subject Tract:** DC Ranch Parcel 4.2
+- **Subject Features:** Guard-gated, golf community
+- **Comps Provided:** 15 pre-filtered comps
 
 ---
 
-*Training Samples v1.0 — December 28, 2024*
+## Bot Output
+
+### PRUNING APPLIED
+
+| Original | Final | Pruned | Reason |
+|----------|-------|--------|--------|
+| 15 | 9 | 6 | Redundancy + Lower Relevance |
+
+**Pruning Logic:**
+- 3 removed: Farther distance duplicates
+- 2 removed: Older sale dates (>6 months)
+- 1 removed: Different HOA tier
+
+---
+
+### ABC SUMMARY
+
+| PROPERTY | LOT | LOCATION |
+|----------|-----|----------|
+| **Garage: 3-car attached** | **Pool: Heated with spa** | **Tract: DC Ranch Parcel 4.2** |
+| All comps have 3-car | 2 comps pool-only (no spa) | 6 comps same parcel — 3 adjacent parcels |
+| **Stories: 2-story** | **Lot Size: 12,000 sqft** | **HOA: DC Ranch (Guard-gated)** |
+| 2 comps are single-story | Range 10K-15K across comps | All comps same HOA umbrella |
+
+---
+
+### KEEP (6 comps)
+
+```
+☐ 5702 Desert Vista                   Confidence: High         $1.25M  SOLD
+  Single Family / 5 Br / 3.5 Ba / 3 cars / 2011 / 2,850 ft² / 11,500 ft² / Pool: Yes
+
+  ✓ Same tract (DC Ranch Parcel 4.2)
+  ✓ Same street as subject
+  ✓ Bed/bath match (5/3.5 vs 5/3)
+  ✓ Pool with spa like subject
+  ✓ CONDITION: Flip — 0.08 mi from subject
+
+  ✓ WHY KEPT: Best comp - same street, same tract, feature aligned
+```
+
+```
+☐ 5544 Mirabel Club                   Confidence: High         $1.18M  SOLD
+  Single Family / 5 Br / 3 Ba / 3 cars / 2009 / 2,720 ft² / 12,200 ft² / Pool: Yes
+
+  ✓ Same tract (DC Ranch Parcel 4.2)
+  ✓ Guard-gated like subject
+  ✓ Pool present
+  ✓ CONDITION: Flip — 0.25 mi from subject
+
+  ✓ WHY KEPT: Same tract, condition aligned
+```
+
+```
+☐ 5890 Thompson Peak                  Confidence: High         $1.22M  PENDING
+  Single Family / 5 Br / 3 Ba / 3 cars / 2010 / 2,780 ft² / 11,800 ft² / Pool: Yes
+
+  ✓ Adjacent tract (DC Ranch Parcel 5.1)
+  ✓ Same HOA umbrella
+  ✓ Fills pending status
+  ✓ CONDITION: Good — 0.4 mi from subject
+
+  ✓ WHY KEPT: Same HOA, fills pending status
+```
+
+```
+☐ 6012 Pinnacle Vista                 Confidence: High         $1.35M  ACTIVE
+  Single Family / 5 Br / 4 Ba / 3 cars / 2012 / 2,950 ft² / 13,000 ft² / Pool: Yes
+
+  ✓ Adjacent tract (DC Ranch Parcel 5.1)
+  ✓ Same HOA umbrella
+  ✓ Fills active status
+  ✓ CONDITION: Flip — 0.5 mi from subject
+
+  ✓ WHY KEPT: Same HOA, fills active status
+```
+
+```
+☐ 5680 Dynamite Blvd                  Confidence: High         $1.15M  SOLD
+  Single Family / 5 Br / 3 Ba / 3 cars / 2008 / 2,650 ft² / 10,500 ft² / Pool: Yes
+
+  ✓ Same tract (DC Ranch Parcel 4.2)
+  ✓ Provides sold depth
+  ✓ CONDITION: Good — 0.35 mi from subject
+
+  ✓ WHY KEPT: Same tract, sold status depth
+```
+
+```
+☐ 5820 Silverleaf                     Confidence: High         $1.28M  SOLD
+  Single Family / 5 Br / 3.5 Ba / 3 cars / 2011 / 2,820 ft² / 12,000 ft² / Pool: Yes
+
+  ✓ Same tract (DC Ranch Parcel 4.2)
+  ✓ Most recent sale (45 days)
+  ✓ CONDITION: Flip — 0.3 mi from subject
+
+  ✓ WHY KEPT: Same tract, most recent sale
+```
+
+---
+
+### REMOVE (3 comps)
+
+**LOWER RELEVANCE**
+
+```
+☐ 7100 E Carefree Hwy                 Confidence: Weak         $1.45M  SOLD
+  Single Family / 5 Br / 4 Ba / 3 cars / 2015 / 3,200 ft² / 18,000 ft² / Pool: Yes
+
+  ✗ Different HOA tier (Desert Mountain private club)
+  ✗ 400 sqft larger than subject
+  ✗ Lot 6,000 sqft larger
+  ✗ CONDITION: Flip — 1.1 mi from subject
+
+  ✗ WHY REMOVED: Different HOA tier - not comparable community
+```
+
+```
+☐ 6234 Blue Sky Trail                 Confidence: Weak         $1.08M  SOLD
+  Single Family / 4 Br / 3 Ba / 3 cars / 2008 / 2,450 ft² / 10,000 ft² / Pool: Yes
+
+  ✗ Different HOA (Grayhawk)
+  ✗ 4BR - Subject is 5BR, different buyer pool
+  ✗ 350 sqft smaller than subject
+  ✗ CONDITION: Good — 0.9 mi from subject
+
+  ✗ WHY REMOVED: Different HOA + bedroom count mismatch
+```
+
+**REDUNDANT**
+
+```
+☐ 5920 Thompson Peak                  Confidence: Weak         $1.19M  SOLD
+  Single Family / 5 Br / 3 Ba / 3 cars / 2010 / 2,750 ft² / 11,500 ft² / Pool: Yes
+
+  ✗ Same tract as #3 but farther
+  ✗ Older sale date (5 months vs 2 months)
+  ✗ Similar features to better-ranked comp
+  ✗ CONDITION: Good — 0.45 mi from subject
+
+  ✗ WHY REMOVED: Redundant - #3 covers this tract with better recency
+```
+
+---
+
+### Pruned Comps (Collapsed)
+
+*Click "Show All 15 Comps" to reveal 6 additional pruned comps*
+
+| Address | Reason |
+|---------|--------|
+| 5850 Desert Vista | Farther duplicate of #1 |
+| 5990 Mirabel Club | Farther duplicate of #2 |
+| 6100 Silverleaf | Older sale date (8 months) |
+| 6250 Thompson Peak | Farther duplicate of #3 |
+| 5780 Dynamite Blvd | Older sale date (7 months) |
+| 6400 Pinnacle Vista | Farther duplicate of #4 |
+
+---
+---
+
+# TRAINING RULES SUMMARY
+
+## Output Format Requirements
+
+1. **ABC Summary** must have three columns: PROPERTY, LOT, LOCATION
+2. **Each column item** needs: Label + Explanation with comp comparison
+3. **KEEP comps** use green ✓ checkmarks
+4. **REMOVE comps** use red ✗ marks
+5. **Every comp** needs: Address, Confidence badge, Price, Status, Property specs line
+6. **WHY KEPT / WHY REMOVED** must be a single clear sentence
+
+## Content Rules
+
+1. **Silence = Correct** - Only show variables that differ or are notable
+2. **Never mention price as ranking factor**
+3. **Tract matching is highest priority**
+4. **Condition hierarchy**: FLIP > GOOD > ORIGINAL > FIXER
+5. **Status coverage** matters: aim for Sold + Pending + Active
+6. **Barriers create warnings**, not automatic removal
+7. **Redundant ≠ Lower Relevance** - keep these categories separate
+
+## Confidence Levels
+
+| Level | When to Use |
+|-------|-------------|
+| **High** | Same tract + condition aligned + feature matched |
+| **Weak** | Tract mismatch OR condition gap OR feature mismatch |
+
+---
+
+*Training Samples v2.0 — December 28, 2024*
+*Aligned with actual PIQ UI format*
 *For OpenAI Assistant Configuration*
