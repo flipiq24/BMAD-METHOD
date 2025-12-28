@@ -33,9 +33,9 @@ It provides **interpretation, not information**.
 - Analysis paralysis
 
 **v3.0 Solution:**
-- 6 sections, 200-400 words
-- Interpretation only
+- 8 sections, focused interpretation
 - What does the data MEAN?
+- What is the market ceiling?
 - What must be VERIFIED?
 
 ### 1.3 Product Goal
@@ -44,7 +44,8 @@ Enable Acquisition Associates to:
 
 - Understand what the comp data means (not just what it shows)
 - Know the relevancy of each data category
-- See a clear outcome interpretation
+- See a clear E-Value outcome interpretation
+- Understand market ceiling and push logic
 - Know exactly what to verify before trusting the E-Value
 
 ### 1.4 Non-Goals (Hard Guardrails)
@@ -56,7 +57,6 @@ The system **MUST NOT:**
 | Output a new value | Bot interprets, doesn't calculate |
 | Restate visible data | User can see the matrix |
 | List every comp | That's what the matrix does |
-| Provide 18 sections of analysis | Information overload |
 | Calculate ARV | Human decides ARV |
 | Recommend an offer price | Outside scope |
 
@@ -78,89 +78,103 @@ The system **MUST NOT:**
 
 ---
 
-## 3. LEAN OUTPUT STRUCTURE (6 SECTIONS ONLY)
+## 3. LEAN OUTPUT STRUCTURE (8 SECTIONS)
 
-Every response must follow this order with **200-400 words total**:
+Every response must follow this order:
 
 ```
-1. PIQ VS COMPS
-2. ACTIVES
-3. PENDINGS / BACKUPS
-4. CLOSED SALES
+1. PROPERTY IN QUESTION VS COMPS
+2. MATRIX TABLE — ACTIVES
+3. MATRIX TABLE — PENDINGS / BACKUPS
+4. MATRIX TABLE — CLOSED SALES
 5. E-VALUE INTERPRETATION
-6. WHAT MUST BE VERIFIED
+6. MARKET CEILING & PUSH LOGIC
+7. WHAT MUST BE VERIFIED
+8. CONCLUSION
 ```
 
 ---
 
 ## 4. SECTION SPECIFICATIONS
 
-### 4.1 PIQ VS COMPS
+### 4.1 PROPERTY IN QUESTION VS COMPS
 
-**Purpose:** Do the comps actually represent the PIQ?
+**Purpose:** Does the comp set actually represent the PIQ?
 
 **Output Format:**
 ```
-PIQ VS COMPS: [RELEVANCY TAG]
+PROPERTY IN QUESTION VS COMPS
+Relevancy: [HIGH / MID / LOW]
 
-[1-3 sentences interpreting fit, not listing metrics]
+[2-4 sentences interpreting fit, not listing metrics]
 ```
 
 **Relevancy Tags:**
 | Tag | Meaning |
 |-----|---------|
-| **HIGH** | Comps closely match PIQ profile |
+| **HIGH** | Material mismatch exists — average may not apply |
 | **MID** | Some functional gaps but usable |
-| **LOW** | Material mismatch — average may not apply |
+| **LOW** | Comps closely match PIQ profile — no adjustment needed |
+
+**Note:** HIGH relevancy means the mismatch is important and needs attention. LOW relevancy means no issue exists.
 
 **Example:**
 ```
-PIQ VS COMPS: MID
+PROPERTY IN QUESTION VS COMPS
+Relevancy: HIGH
 
-Comps skew larger (avg 1,650 sqft vs PIQ 1,380). This pulls
-the average up. PIQ may trade closer to the lower tier unless
-expansion is feasible.
+The PIQ is a 2-bedroom / 1-bath property, while higher-priced
+comps are predominantly 3-bedroom / 2-bath homes. This represents
+a fundamentally different buyer pool. The blended average includes
+sales that are not comparable to the PIQ and likely overstates
+its achievable value.
 ```
 
 ---
 
-### 4.2 ACTIVES
+### 4.2 MATRIX TABLE — ACTIVES
 
-**Purpose:** What is the competition signal?
+**Purpose:** What is the competition signal from active listings?
 
 **Output Format:**
 ```
-ACTIVES: [RELEVANCY TAG]
+MATRIX TABLE — ACTIVES
+Relevancy: [HIGH / MID / LOW]
 
-[1-3 sentences on competition signal, not listing actives]
+[2-4 sentences on competition signal, not listing actives]
 ```
 
 **Relevancy Tags:**
 | Tag | Meaning |
 |-----|---------|
-| **HIGH** | Active inventory creates meaningful pricing pressure |
-| **MID** | Some competition but not dominant |
-| **LOW** | Limited active competition |
+| **HIGH** | Active inventory creates meaningful pricing signal (pressure or scarcity) |
+| **MID** | Some signal present but not dominant |
+| **LOW** | Limited active competition, no significant signal |
 
 **Example:**
 ```
-ACTIVES: HIGH
+MATRIX TABLE — ACTIVES
+Relevancy: HIGH
 
-7 actives in PIQ's price band with avg 45 DOM. Market is absorbing
-slowly at this tier. Aggressive pricing may be required for velocity.
+There are five active listings. Three are in equal or superior
+condition to the PIQ's post-rehab target and are priced between
+$315,000 and $329,000. All three have been sitting for 58, 67,
+and 71 days respectively, with two having taken price reductions.
+The market is visibly rejecting this pricing tier.
 ```
 
 ---
 
-### 4.3 PENDINGS / BACKUPS
+### 4.3 MATRIX TABLE — PENDINGS / BACKUPS
 
-**Purpose:** What is the directional signal?
+**Purpose:** What is the directional signal from pending activity?
 
 **Output Format:**
 ```
-PENDINGS / BACKUPS: [RELEVANCY TAG]
+MATRIX TABLE — PENDINGS / BACKUPS
+Relevancy: [HIGH / MID / LOW]
 
-[1-3 sentences on directional signal, not listing pendings]
+[2-4 sentences on directional signal, not listing pendings]
 ```
 
 **Relevancy Tags:**
@@ -172,39 +186,47 @@ PENDINGS / BACKUPS: [RELEVANCY TAG]
 
 **Example:**
 ```
-PENDINGS / BACKUPS: HIGH
+MATRIX TABLE — PENDINGS / BACKUPS
+Relevancy: HIGH
 
-3 pendings in upper tier (list $285-$295K) suggest market
-accepting prices above closed average. Verify contract prices
-before assuming upper range holds.
+There are three pendings. All three are contracting below the
+closed sales average — pending average is $258/sqft versus
+closed average of $281/sqft. Two of the three took 34 and 38
+days to go under contract. This is a clear and consistent
+downward signal across all pending activity.
 ```
 
 ---
 
-### 4.4 CLOSED SALES
+### 4.4 MATRIX TABLE — CLOSED SALES
 
-**Purpose:** What is the baseline integrity?
+**Purpose:** What is the baseline integrity from closed transactions?
 
 **Output Format:**
 ```
-CLOSED SALES: [RELEVANCY TAG]
+MATRIX TABLE — CLOSED SALES
+Relevancy: [HIGH / MID / LOW]
 
-[1-3 sentences on baseline reliability, not listing closed comps]
+[2-4 sentences on baseline reliability, not listing closed comps]
 ```
 
 **Relevancy Tags:**
 | Tag | Meaning |
 |-----|---------|
-| **HIGH** | Strong closed foundation, tight cluster |
+| **HIGH** | Closed data provides critical signal (strong foundation OR outlier issue) |
 | **MID** | Usable but some variance or gaps |
-| **LOW** | Weak foundation — thin data or outlier-driven |
+| **LOW** | Standard closed foundation, no special concerns |
 
 **Example:**
 ```
-CLOSED SALES: HIGH
+MATRIX TABLE — CLOSED SALES
+Relevancy: HIGH
 
-11 closed in 90 days with tight $178-$192/sqft range. Mean and
-median align within 3%. Baseline is mathematically reliable.
+There are seven closed sales with an average of $312/sqft.
+However, one sale at $378/sqft on a 14,200 sqft lot with
+permitted ADU is pulling the mean up materially. The remaining
+six closed sales cluster tightly around $289/sqft. The average
+is distorted by a non-transferable outlier.
 ```
 
 ---
@@ -215,59 +237,133 @@ median align within 3%. Baseline is mathematically reliable.
 
 **Output Format:**
 ```
-E-VALUE INTERPRETATION: [OUTCOME TAG]
+E-VALUE INTERPRETATION
+Outcome: [OUTCOME TAG]
 
-[2-4 sentences of lean logic — what the E-Value means, not what it is]
+[2-4 sentences of interpretation — what the E-Value means, not what it is]
 ```
 
 **Outcome Tags:**
 | Tag | Meaning |
 |-----|---------|
 | **BASELINE CONFIRMED** | E-Value is reliable for this PIQ |
-| **POSSIBLE PUSH** | Evidence supports exploring upper range |
-| **CAUTION** | Material risk factors present |
-| **CEILING BREACH** | E-Value may exceed what market will support |
+| **PUSH SUPPORTED** | Evidence supports exploring upper range |
+| **BASELINE — CEILING CAPPED** | Baseline reliable but upside capped by market |
+| **BASELINE + STRATEGY WARNING** | Baseline achievable but execution strategy matters |
+| **CAUTION — [REASON]** | Material risk factors present |
+| **CEILING BREACH — [REASON]** | E-Value may exceed what market will support |
+| **VERIFY BEFORE MOVING** | Signals conflict — need confirmation |
+
+**Caution Reasons:**
+- AVERAGE OVERSTATED
+- AVERAGE DISTORTED
+- MARKET SOFTENING
+- PRODUCT TYPE CONTAMINATION
+
+**Ceiling Breach Reasons:**
+- NO CLOSED PROOF
 
 **Example:**
 ```
-E-VALUE INTERPRETATION: POSSIBLE PUSH
+E-VALUE INTERPRETATION
+Outcome: CAUTION — AVERAGE OVERSTATED
 
-Closed foundation supports baseline. Pending activity at upper
-tier suggests market may accept $5-10K above baseline IF PIQ
-matches condition of pending comps. Verify contract prices
-before committing to upper range.
+The E-Value of $298,670 uses the blended average, which includes
+3/2 sales the PIQ cannot replicate without structural expansion.
+The appropriate anchor for a 2/1 layout is approximately $241/sqft,
+implying a value closer to $263,000. The E-Value may be overstated
+by 12-14%.
 ```
 
 ---
 
-### 4.6 WHAT MUST BE VERIFIED
+### 4.6 MARKET CEILING & PUSH LOGIC
+
+**Purpose:** Where is the true ceiling and what evidence supports pushing toward it?
+
+**Output Format:**
+```
+MARKET CEILING & PUSH LOGIC
+Relevancy: [HIGH / MID / LOW]
+
+[2-4 sentences on ceiling definition and push evidence]
+```
+
+**Relevancy Tags:**
+| Tag | Meaning |
+|-----|---------|
+| **HIGH** | Ceiling analysis is critical to decision |
+| **MID** | Some ceiling considerations present |
+| **LOW** | No significant ceiling concerns |
+
+**Example:**
+```
+MARKET CEILING & PUSH LOGIC
+Relevancy: HIGH
+
+The ceiling is not defined by what sellers are asking or what
+formulas produce — it is defined by what buyers are currently
+refusing to pay. Three comparable actives sitting at 58-71 DOM
+with price reductions establish a visible rejection point.
+Pricing the PIQ into that zone introduces significant absorption risk.
+```
+
+---
+
+### 4.7 WHAT MUST BE VERIFIED
 
 **Purpose:** What questions must be answered before trusting this analysis?
 
 **Output Format:**
 ```
-WHAT MUST BE VERIFIED:
-
+WHAT MUST BE VERIFIED
 • [Task 1]
 • [Task 2]
 • [Task 3]
 • [Task 4]
+
+[Optional: 1 sentence summary of verification priority]
 ```
 
 **Rules:**
-- Maximum 4-6 bullets
+- 3-5 bullets typically
 - Specific, actionable questions
 - No generic "do more research" tasks
 - Focus on deal-breaking unknowns
 
 **Example:**
 ```
-WHAT MUST BE VERIFIED:
+WHAT MUST BE VERIFIED
+• Confirm no feasible layout expansion (can the PIQ be converted to 3/2?)
+• Get contractor assessment on bedroom/bath addition feasibility and cost
+• Confirm buyer resistance to 2/1 layouts at higher prices via agent feedback
+• Recalculate acquisition basis using 2/1 cluster anchor (~$241/sqft)
 
-• What did 742 Oak pending contract for vs $289K list?
-• Does PIQ have any backing/busy street exposure?
-• Is PIQ sqft permitted or unpermitted addition?
-• Can layout support 3/2 conversion at reasonable cost?
+If layout expansion is not feasible, the deal must work at the
+2/1 price level or it does not work.
+```
+
+---
+
+### 4.8 CONCLUSION
+
+**Purpose:** Summary statement tying everything together.
+
+**Output Format:**
+```
+CONCLUSION
+
+[2-4 sentences summarizing the key finding and recommended stance]
+```
+
+**Example:**
+```
+CONCLUSION
+
+The layout mismatch introduces real downward risk. The blended
+average masks a structural disadvantage that buyers will recognize
+immediately. The PIQ should anchor to the 2/1 cluster, and the
+baseline should be treated as a ceiling rather than a starting point.
 ```
 
 ---
@@ -278,155 +374,185 @@ WHAT MUST BE VERIFIED:
 interface MatrixIntelligenceOutput {
   piq_vs_comps: {
     relevancy: 'HIGH' | 'MID' | 'LOW';
-    interpretation: string; // 1-3 sentences
+    interpretation: string; // 2-4 sentences
   };
 
   actives: {
     relevancy: 'HIGH' | 'MID' | 'LOW';
-    interpretation: string; // 1-3 sentences
+    interpretation: string; // 2-4 sentences
   };
 
   pendings_backups: {
     relevancy: 'HIGH' | 'MID' | 'LOW';
-    interpretation: string; // 1-3 sentences
+    interpretation: string; // 2-4 sentences
   };
 
   closed_sales: {
     relevancy: 'HIGH' | 'MID' | 'LOW';
-    interpretation: string; // 1-3 sentences
-  };
-
-  e_value_interpretation: {
-    outcome: 'BASELINE CONFIRMED' | 'POSSIBLE PUSH' | 'CAUTION' | 'CEILING BREACH';
     interpretation: string; // 2-4 sentences
   };
 
-  verification_tasks: string[]; // 4-6 items max
+  e_value_interpretation: {
+    outcome: OutcomeTag;
+    interpretation: string; // 2-4 sentences
+  };
+
+  market_ceiling: {
+    relevancy: 'HIGH' | 'MID' | 'LOW';
+    interpretation: string; // 2-4 sentences
+  };
+
+  verification_tasks: string[]; // 3-5 items
+  verification_summary?: string; // optional summary
+
+  conclusion: string; // 2-4 sentences
 }
+
+type OutcomeTag =
+  | 'BASELINE CONFIRMED'
+  | 'PUSH SUPPORTED'
+  | 'BASELINE — CEILING CAPPED'
+  | 'BASELINE + STRATEGY WARNING'
+  | 'CAUTION — AVERAGE OVERSTATED'
+  | 'CAUTION — AVERAGE DISTORTED'
+  | 'CAUTION — MARKET SOFTENING'
+  | 'CAUTION — PRODUCT TYPE CONTAMINATION'
+  | 'CEILING BREACH — NO CLOSED PROOF'
+  | 'VERIFY BEFORE MOVING';
 ```
 
 ---
 
 ## 6. ENGINEERING GUARDRAILS
 
-### 6.1 Word Count Enforcement
-
-| Constraint | Limit |
-|------------|-------|
-| Total output | 200-400 words |
-| Per section (1-4) | 1-3 sentences |
-| E-Value section | 2-4 sentences |
-| Verification tasks | 4-6 bullets max |
-
-### 6.2 Required Constraints
+### 6.1 Required Constraints
 
 | Constraint | Enforcement |
 |------------|-------------|
 | Output must be schema-validated | No free-form responses |
-| Sections cannot be omitted | All 6 sections required |
+| Sections cannot be omitted | All 8 sections required |
 | Sections cannot be reordered | Fixed sequence |
 | No data restatement | Interpret, don't list |
-| No exact dollar values in narrative | Directional language only |
+| No exact dollar values in narrative | Directional language preferred |
 | The Absolute Rule honored | Unproven upside = nonexistent |
 
-### 6.3 Forbidden Patterns
+### 6.2 Forbidden Patterns
 
 | ❌ Do NOT | ✅ Instead |
 |-----------|-----------|
-| "The comps are: 123 Main, 456 Oak..." | "Comps skew larger than PIQ..." |
-| "E-Value is $267,500" | "Baseline is supported by closed evidence" |
-| "There are 7 actives at $X, $Y, $Z..." | "Active inventory creates pricing pressure" |
-| "Pending at 742 Oak listed at $289K" | "Pending activity suggests upper tier acceptance" |
+| "The comps are: 123 Main, 456 Oak..." | "There are seven closed sales forming a baseline..." |
+| Only stating E-Value number | Interpret what the E-Value means |
+| Listing individual actives with prices | "Three actives sitting at 58-71 DOM with price reductions" |
+| Generic verification tasks | Specific actionable questions |
 
 ---
 
 ## 7. ACCEPTANCE CRITERIA (QA)
 
-- [ ] Total output is 200-400 words
-- [ ] All 6 sections present in order
-- [ ] Each section has relevancy/outcome tag
+- [ ] All 8 sections present in order
+- [ ] Each section 1-4 has relevancy tag (HIGH/MID/LOW)
+- [ ] E-VALUE INTERPRETATION has outcome tag
+- [ ] MARKET CEILING has relevancy tag
+- [ ] WHAT MUST BE VERIFIED has 3-5 specific tasks
+- [ ] CONCLUSION provides clear summary
 - [ ] No data restatement (interpretation only)
-- [ ] No exact dollar values in narrative
-- [ ] Verification tasks are specific and actionable
-- [ ] Maximum 4-6 verification tasks
 - [ ] The Absolute Rule honored
 - [ ] CEILING BREACH used when E-Value exceeds closed evidence
 
 ---
 
-## 8. SAMPLE OUTPUT
+## 8. SAMPLE OUTPUT (Full Format)
 
 ```
-PIQ VS COMPS: MID
+PROPERTY IN QUESTION VS COMPS
+Relevancy: LOW
 
-Comps skew slightly larger (avg 1,580 sqft vs PIQ 1,420).
-Most closed in same tract and school district. Functional
-match is acceptable but size gap may limit upper range.
+The PIQ aligns structurally with the comp set. Layout and size
+fall within the dominant buyer pool, and higher-priced comps
+share the same functional profile. There is no buyer-pool
+mismatch that would require discounting or adjustment.
 
-ACTIVES: HIGH
+MATRIX TABLE — ACTIVES
+Relevancy: LOW
 
-Heavy active inventory (9 listings) in PIQ's target range.
-Average DOM at 52 days signals slow absorption. Price
-resistance is present at upper tier.
+There are three active listings. All are priced consistently
+with closed data and represent standard market positioning.
+None introduce ceiling pressure or suggest buyer resistance
+at the E-Value level.
 
-PENDINGS / BACKUPS: MID
+MATRIX TABLE — PENDINGS / BACKUPS
+Relevancy: LOW
 
-2 pendings in mid-tier provide directional support. No
-pending evidence at upper range. Cannot confirm market
-acceptance above baseline without contract verification.
+There is one pending sale at a price consistent with the closed
+average. It does not introduce directional movement in either
+direction. No backup activity exists to suggest competitive bidding.
 
-CLOSED SALES: HIGH
+MATRIX TABLE — CLOSED SALES
+Relevancy: HIGH
 
-8 closed in 90 days form tight cluster. Mean/median gap
-under 4%. One high outlier (pool, premium lot) should not
-pull expectations — not transferable to PIQ.
+There are nine closed sales forming a tight, reliable baseline
+around $267/sqft. Mean and median are within 2% of each other.
+All sales represent similar condition and no single comp is
+distorting the average. This establishes a dependable anchor.
 
-E-VALUE INTERPRETATION: BASELINE CONFIRMED
+E-VALUE INTERPRETATION
+Outcome: BASELINE CONFIRMED
 
-E-Value is mathematically supported by closed cluster.
-Upper range lacks closed proof — pending activity is
-insufficient to justify aggressive positioning. Heavy
-active inventory reinforces baseline-conservative stance.
+The E-Value of $301,910 accurately reflects current market
+conditions for properties like the PIQ. The closed cluster is
+tight, the PIQ aligns structurally, and no forward signals
+suggest movement above or below the established range.
 
-WHAT MUST BE VERIFIED:
+MARKET CEILING & PUSH LOGIC
+Relevancy: LOW
 
-• What did 892 Elm pending contract for vs $274K list?
-• Does PIQ have any location negatives (backing, busy street)?
-• Why is 1847 Pine still active at 78 DOM?
-• Is the high-outlier pool comp pulling the average unfairly?
+The highest credible sold price defines a soft ceiling at
+$312,000. However, no pending activity or scarcity signal
+supports reaching for it. The E-Value sits appropriately
+within the proven range without requiring verification of upside.
+
+WHAT MUST BE VERIFIED
+• Confirm no undisclosed PIQ negatives (busy street, backing issues, deferred maintenance)
+• Confirm PIQ condition aligns with rehab scope assumptions
+• Verify the PIQ does not have unique disadvantages versus the closed set
+
+If verification confirms alignment, the E-Value can be trusted
+as the working basis.
+
+CONCLUSION
+
+The dataset is clean and internally consistent. Closed sales
+establish a reliable baseline, and no contradicting signals
+exist in pending or active data. The E-Value represents market
+reality without adjustment.
 ```
-
-**Word count: 218 words**
 
 ---
 
-## 9. v2.4 → v3.0 MIGRATION NOTES
+## 9. SCENARIO COVERAGE
 
-| v2.4 Element | v3.0 Treatment |
-|--------------|----------------|
-| Context Header | REMOVED — user knows why they're here |
-| 18 sections | CONSOLIDATED to 6 |
-| Confidence Score | REPLACED with Relevancy Tags |
-| Signal Strength | MERGED into interpretation |
-| Outlier Classification | ONLY mentioned if relevant |
-| Market Regime Declaration | FOLDED into Actives interpretation |
-| Market Saturation | FOLDED into Actives interpretation |
-| Competitive Alternatives | REMOVED — that's Map overlay job |
-| Status Bucket Intelligence | SPLIT into Actives + Pendings |
-| Transferability Test | ONLY mentioned when needed |
-| Deal Viability Gate | EXPRESSED through Outcome Tags |
-| Capital at Risk | EXPRESSED through Outcome Tags |
-| Escalation Check | REMOVED — human judgment |
-| Final Stance (🟢🟡🔴) | REPLACED with Outcome Tags |
-| Bot Limitation Flag | REMOVED — unnecessary |
-| Human Override Protocol | REMOVED — system-level, not output |
-| Post-Close Learning | REMOVED — system-level, not output |
+The bot must handle these 10 core scenarios:
+
+| # | Scenario | Typical Outcome |
+|---|----------|-----------------|
+| 1 | Clean Baseline | BASELINE CONFIRMED |
+| 2 | Bed/Bath Mismatch | CAUTION — AVERAGE OVERSTATED |
+| 3 | Outlier Distortion | CAUTION — AVERAGE DISTORTED |
+| 4 | Actives Capping Value | BASELINE — CEILING CAPPED |
+| 5 | Size Ceiling Breach | CEILING BREACH — NO CLOSED PROOF |
+| 6 | Shifting Market | CAUTION — MARKET SOFTENING |
+| 7 | Scarcity Upside | PUSH SUPPORTED |
+| 8 | Over-Improvement Risk | BASELINE + STRATEGY WARNING |
+| 9 | New Construction Contamination | CAUTION — PRODUCT TYPE CONTAMINATION |
+| 10 | Mixed Signals | VERIFY BEFORE MOVING |
+
+See `comp-matrix-training-samples.md` for full examples of each scenario.
 
 ---
 
 ## 10. ONE-LINE ENGINEERING SUMMARY
 
-Build a lean interpretation layer that explains what comp data means in 200-400 words across 6 sections: PIQ fit, active competition, pending direction, closed foundation, E-Value outcome, and verification tasks — without restating visible data or providing false precision.
+Build a lean interpretation layer that explains what comp data means across 8 sections: PIQ fit, actives, pendings, closed sales, E-Value interpretation, market ceiling logic, verification tasks, and conclusion — without restating visible data or providing false precision.
 
 ---
 
