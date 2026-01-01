@@ -453,7 +453,7 @@ interface CompMapOverlay {
 
 ## 6.1 Phase 1 — Core Implementation
 
-### Epic 1: Map Overlay Foundation — 2 hrs (0.25 day)
+### Epic 1: Map Overlay Foundation — 2 hrs
 
 | Task | Hours |
 |------|-------|
@@ -463,7 +463,7 @@ interface CompMapOverlay {
 | 1.4 Map view integration | 0.5 |
 | 1.5 Loading/error states | 0.5 |
 
-### Epic 2: ABC Summary Panel — 1.5 hrs (0.25 day)
+### Epic 2: ABC Summary Panel — 1.5 hrs
 
 | Task | Hours |
 |------|-------|
@@ -471,7 +471,7 @@ interface CompMapOverlay {
 | 2.2 Lot column (B) logic | 0.5 |
 | 2.3 Location column (C) logic | 0.5 |
 
-### Epic 3: KEEP/REMOVE Logic — 2 hrs (0.25 day)
+### Epic 3: KEEP/REMOVE Logic — 2 hrs
 
 | Task | Hours |
 |------|-------|
@@ -480,7 +480,7 @@ interface CompMapOverlay {
 | 3.3 WHY KEPT/REMOVED summaries | 0.5 |
 | 3.4 Confidence badge assignment | 0.5 |
 
-### Epic 4: Selection & Actions — 1.5 hrs (0.25 day)
+### Epic 4: Selection & Actions — 1.5 hrs
 
 | Task | Hours |
 |------|-------|
@@ -490,13 +490,13 @@ interface CompMapOverlay {
 
 ### Timeline Summary (Phase 1)
 
-| Phase | Duration | Deliverable |
-|-------|----------|-------------|
-| Epic 1: Map Foundation | 0.25 day | Pins visible |
-| Epic 2: ABC Summary | 0.25 day | 3 columns live |
-| Epic 3: KEEP/REMOVE | 0.25 day | Cards with explanations |
-| Epic 4: Selection | 0.25 day | Actions working |
-| **TOTAL** | **1 day** | **Map overlay live** |
+| Phase | Hours | Deliverable |
+|-------|-------|-------------|
+| Epic 1: Map Foundation | 2 hrs | Pins visible |
+| Epic 2: ABC Summary | 1.5 hrs | 3 columns live |
+| Epic 3: KEEP/REMOVE | 2 hrs | Cards with explanations |
+| Epic 4: Selection | 1.5 hrs | Actions working |
+| **TOTAL** | **7 hrs (~1 day)** | **Map overlay live** |
 
 ---
 
@@ -529,7 +529,7 @@ interface CompMapOverlay {
 | • Current UI structure documented above |
 | • TypeScript schemas match actual data |
 | • QA checklist with current vs TODO items |
-| • **Phase 1: 1 day with BMAD + Claude Code** |
+| • **Phase 1: 7 hrs (~1 day) with BMAD + Claude Code** |
 | • Phase 2 backlog prioritized |
 | • ABC Summary follows ABCD model from parent PRD |
 | • KEEP/REMOVE logic matches comp discipline rules |

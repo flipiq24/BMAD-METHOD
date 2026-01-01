@@ -554,7 +554,7 @@ See `comp-matrix-training-samples.md` for full examples of each scenario.
 
 > **Note:** Timelines reflect BMAD Method + Claude Code (AI-assisted development)
 
-### Epic 1: Core Interpretation Engine — 3 hrs (0.5 day)
+### Epic 1: Core Interpretation Engine — 3 hrs
 
 | Task | Hours |
 |------|-------|
@@ -564,7 +564,7 @@ See `comp-matrix-training-samples.md` for full examples of each scenario.
 | 1.4 Verification task generator | 0.5 |
 | 1.5 Conclusion synthesizer | 0.5 |
 
-### Epic 2: Integration & UI — 2 hrs (0.25 day)
+### Epic 2: Integration & UI — 2 hrs
 
 | Task | Hours |
 |------|-------|
@@ -573,7 +573,7 @@ See `comp-matrix-training-samples.md` for full examples of each scenario.
 | 2.3 Output formatting/display | 0.75 |
 | 2.4 Error handling | 0.5 |
 
-### Epic 3: Testing & Validation — 1 hr (0.25 day)
+### Epic 3: Testing & Validation — 1 hr
 
 | Task | Hours |
 |------|-------|
@@ -583,12 +583,12 @@ See `comp-matrix-training-samples.md` for full examples of each scenario.
 
 ### Timeline Summary
 
-| Phase | Duration | Deliverable |
-|-------|----------|-------------|
-| Epic 1: Interpretation Engine | 0.5 day | Core logic complete |
-| Epic 2: Integration & UI | 0.25 day | Visible in PIQ |
-| Epic 3: Testing | 0.25 day | All scenarios pass |
-| **TOTAL** | **1 day** | **Bot live in Matrix view** |
+| Phase | Hours | Deliverable |
+|-------|-------|-------------|
+| Epic 1: Interpretation Engine | 3 hrs | Core logic complete |
+| Epic 2: Integration & UI | 2 hrs | Visible in PIQ |
+| Epic 3: Testing | 1 hr | All scenarios pass |
+| **TOTAL** | **6 hrs (~1 day)** | **Bot live in Matrix view** |
 
 ---
 

@@ -753,7 +753,7 @@ When evaluating a property at ZIP 92262 (Palm Springs, Riverside County):
 
 > **Note:** Timelines reflect BMAD Method + Claude Code (AI-assisted development)
 
-### Epic 1: Buy Box Builder (OMS) — 6 hrs (1 day)
+### Epic 1: Buy Box Builder (OMS) — 6 hrs
 
 | Task | Hours |
 |------|-------|
@@ -767,7 +767,7 @@ When evaluating a property at ZIP 92262 (Palm Springs, Riverside County):
 | 1.8 Database schema | 0.5 |
 | 1.9 Validation + errors | 0.25 |
 
-### Epic 2: Market Data API — 2 hrs (0.25 day)
+### Epic 2: Market Data API — 2 hrs
 
 | Task | Hours |
 |------|-------|
@@ -777,7 +777,7 @@ When evaluating a property at ZIP 92262 (Palm Springs, Riverside County):
 | 2.4 24-hour cache | 0.25 |
 | 2.5 Fallback handling | 0.25 |
 
-### Epic 3: Investment Analysis Bot — 4 hrs (0.5 day)
+### Epic 3: Investment Analysis Bot — 4 hrs
 
 | Task | Hours |
 |------|-------|
@@ -793,13 +793,13 @@ When evaluating a property at ZIP 92262 (Palm Springs, Riverside County):
 
 ### Timeline Summary
 
-| Phase | Duration | Deliverable |
-|-------|----------|-------------|
-| Epic 1: Buy Box Builder | 1 day | OMS form live |
-| Epic 2: Market API | 0.25 day | API live |
-| Epic 3: Investment Bot | 0.5 day | Bot live in Command |
-| Integration Testing | 0.25 day | E2E verified |
-| **TOTAL** | **2 days** | **Full system deployed** |
+| Phase | Hours | Deliverable |
+|-------|-------|-------------|
+| Epic 1: Buy Box Builder | 6 hrs | OMS form live |
+| Epic 2: Market API | 2 hrs | API live |
+| Epic 3: Investment Bot | 4 hrs | Bot live in Command |
+| Integration Testing | 2 hrs | E2E verified |
+| **TOTAL** | **14 hrs (~2 days)** | **Full system deployed** |
 
 ---
 
