@@ -452,6 +452,57 @@ Sections appear in this fixed order, top to bottom:
 
 ---
 
+## 11. DEVELOPMENT PLAN
+
+> **Note:** Timelines reflect BMAD Method + Claude Code (AI-assisted development)
+
+### Epic 1: Bucket Classification Engine — 3 hrs (0.5 day)
+
+| Task | Hours |
+|------|-------|
+| 1.1 PIQ comparison matrix logic | 0.75 |
+| 1.2 Unchangeable feature detection | 0.5 |
+| 1.3 Classification decision sequence | 0.75 |
+| 1.4 Bucket assignment (PREMIUM/HIGH/MID/LOW) | 0.5 |
+| 1.5 Ceiling comp identification | 0.5 |
+
+### Epic 2: Chip Generation System — 2 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 2.1 18 chip category mapping | 0.75 |
+| 2.2 MLS data extraction | 0.5 |
+| 2.3 Chip display logic (max 6 + overflow) | 0.5 |
+| 2.4 Hover explanation generator | 0.25 |
+
+### Epic 3: UI Components — 2 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 3.1 Bucketed list view | 0.5 |
+| 3.2 Value ceiling line + star indicator | 0.5 |
+| 3.3 Collapsible sections | 0.5 |
+| 3.4 Sort order implementation | 0.5 |
+
+### Epic 4: Testing & Edge Cases — 1 hr (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 4.1 Edge case handling (< 3 comps, no PREMIUM, etc.) | 0.5 |
+| 4.2 Acceptance criteria validation | 0.5 |
+
+### Timeline Summary
+
+| Phase | Duration | Deliverable |
+|-------|----------|-------------|
+| Epic 1: Classification Engine | 0.5 day | Bucket logic complete |
+| Epic 2: Chip Generation | 0.25 day | 18 chips working |
+| Epic 3: UI Components | 0.25 day | List view live |
+| Epic 4: Testing | 0.25 day | All AC pass |
+| **TOTAL** | **1.25 days** | **Bot live in List view** |
+
+---
+
 ## HANDOFF SUMMARY
 
 ### For Eric (PM)
@@ -463,6 +514,7 @@ Sections appear in this fixed order, top to bottom:
 | Key Insight | Ceiling = COMP, not percentage |
 | Priority | P1 Core Feature |
 | QA | 12 acceptance criteria defined |
+| **Timeline** | **1.25 days with BMAD + Claude Code** |
 
 ### For Nate (CTO)
 
@@ -473,6 +525,7 @@ Sections appear in this fixed order, top to bottom:
 | Data | Shared schema in Section 0 |
 | Chips | 18 official categories in Section 4 |
 | Sort Logic | Section 5 (bucket → $/sqft → distance) |
+| **Timeline** | **1.25 days with BMAD + Claude Code** |
 
 ---
 

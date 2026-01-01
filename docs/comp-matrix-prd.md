@@ -550,7 +550,49 @@ See `comp-matrix-training-samples.md` for full examples of each scenario.
 
 ---
 
-## 10. ONE-LINE ENGINEERING SUMMARY
+## 10. DEVELOPMENT PLAN
+
+> **Note:** Timelines reflect BMAD Method + Claude Code (AI-assisted development)
+
+### Epic 1: Core Interpretation Engine — 3 hrs (0.5 day)
+
+| Task | Hours |
+|------|-------|
+| 1.1 8-section output generator | 1 |
+| 1.2 Relevancy tag logic (HIGH/MID/LOW) | 0.5 |
+| 1.3 Outcome tag classification | 0.5 |
+| 1.4 Verification task generator | 0.5 |
+| 1.5 Conclusion synthesizer | 0.5 |
+
+### Epic 2: Integration & UI — 2 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 2.1 Matrix view integration | 0.5 |
+| 2.2 iQ button trigger | 0.25 |
+| 2.3 Output formatting/display | 0.75 |
+| 2.4 Error handling | 0.5 |
+
+### Epic 3: Testing & Validation — 1 hr (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 3.1 10 scenario coverage tests | 0.5 |
+| 3.2 Guardrail validation | 0.25 |
+| 3.3 Edge case handling | 0.25 |
+
+### Timeline Summary
+
+| Phase | Duration | Deliverable |
+|-------|----------|-------------|
+| Epic 1: Interpretation Engine | 0.5 day | Core logic complete |
+| Epic 2: Integration & UI | 0.25 day | Visible in PIQ |
+| Epic 3: Testing | 0.25 day | All scenarios pass |
+| **TOTAL** | **1 day** | **Bot live in Matrix view** |
+
+---
+
+## 11. ONE-LINE ENGINEERING SUMMARY
 
 Build a lean interpretation layer that explains what comp data means across 8 sections: PIQ fit, actives, pendings, closed sales, E-Value interpretation, market ceiling logic, verification tasks, and conclusion — without restating visible data or providing false precision.
 

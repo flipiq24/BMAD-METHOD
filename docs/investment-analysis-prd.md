@@ -751,53 +751,55 @@ When evaluating a property at ZIP 92262 (Palm Springs, Riverside County):
 
 ## 16. Development Plan
 
-### Epic 1: Buy Box Builder (OMS) — 17 hrs (2 days)
+> **Note:** Timelines reflect BMAD Method + Claude Code (AI-assisted development)
+
+### Epic 1: Buy Box Builder (OMS) — 6 hrs (1 day)
 
 | Task | Hours |
 |------|-------|
-| 1.1 9-step intake form UI | 4 |
-| 1.2 ROI/All-In auto-calc | 1 |
-| 1.3 FHA lookup + Max ARV/All-In | 1 |
-| 1.4 Property Type & Year matrices | 2 |
-| 1.5 Size, Rehab, Killers, Conditional | 2 |
-| 1.6 Location overrides (waterfall) | 3 |
-| 1.7 Backend API: Save/Load | 2 |
-| 1.8 Database schema | 1 |
-| 1.9 Validation + errors | 1 |
+| 1.1 9-step intake form UI | 1.5 |
+| 1.2 ROI/All-In auto-calc | 0.5 |
+| 1.3 FHA lookup + Max ARV/All-In | 0.5 |
+| 1.4 Property Type & Year matrices | 0.5 |
+| 1.5 Size, Rehab, Killers, Conditional | 0.5 |
+| 1.6 Location overrides (waterfall) | 1 |
+| 1.7 Backend API: Save/Load | 0.75 |
+| 1.8 Database schema | 0.5 |
+| 1.9 Validation + errors | 0.25 |
 
-### Epic 2: Market Data API — 5 hrs (0.5 day)
-
-| Task | Hours |
-|------|-------|
-| 2.1 /markets endpoint | 2 |
-| 2.2 Load 413 cities | 1 |
-| 2.3 City normalization | 1 |
-| 2.4 24-hour cache | 0.5 |
-| 2.5 Fallback handling | 0.5 |
-
-### Epic 3: Investment Analysis Bot — 13 hrs (1.5 days)
+### Epic 2: Market Data API — 2 hrs (0.25 day)
 
 | Task | Hours |
 |------|-------|
-| 3.1 iQ button + panel UI | 2 |
-| 3.2 Fetch PIQ data | 1 |
-| 3.3 Fetch Buy Box | 1 |
-| 3.4 Fetch Market Data | 0.5 |
-| 3.5 Buy Box comparison engine | 3 |
-| 3.6 Verdict + summary generation | 2 |
-| 3.7 Agent question logic | 2 |
-| 3.8 Fit analysis output | 1 |
-| 3.9 Error handling | 0.5 |
+| 2.1 /markets endpoint | 0.5 |
+| 2.2 Load 413 cities | 0.5 |
+| 2.3 City normalization | 0.5 |
+| 2.4 24-hour cache | 0.25 |
+| 2.5 Fallback handling | 0.25 |
+
+### Epic 3: Investment Analysis Bot — 4 hrs (0.5 day)
+
+| Task | Hours |
+|------|-------|
+| 3.1 iQ button + panel UI | 0.5 |
+| 3.2 Fetch PIQ data | 0.25 |
+| 3.3 Fetch Buy Box | 0.25 |
+| 3.4 Fetch Market Data | 0.25 |
+| 3.5 Buy Box comparison engine | 1 |
+| 3.6 Verdict + summary generation | 0.75 |
+| 3.7 Agent question logic | 0.5 |
+| 3.8 Fit analysis output | 0.25 |
+| 3.9 Error handling | 0.25 |
 
 ### Timeline Summary
 
 | Phase | Duration | Deliverable |
 |-------|----------|-------------|
-| Epic 1: Buy Box Builder | 2 days | OMS form live |
-| Epic 2: Market API | 0.5 day | API live |
-| Epic 3: Investment Bot | 1.5 days | Bot live in Command |
-| Integration Testing | 1 day | E2E verified |
-| **TOTAL** | **5 days** | **Full system deployed** |
+| Epic 1: Buy Box Builder | 1 day | OMS form live |
+| Epic 2: Market API | 0.25 day | API live |
+| Epic 3: Investment Bot | 0.5 day | Bot live in Command |
+| Integration Testing | 0.25 day | E2E verified |
+| **TOTAL** | **2 days** | **Full system deployed** |
 
 ---
 

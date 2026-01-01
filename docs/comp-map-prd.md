@@ -447,21 +447,74 @@ interface CompMapOverlay {
 
 ---
 
-# 6. ENHANCEMENTS BACKLOG
+# 6. DEVELOPMENT PLAN
 
-## 6.1 Phase 2 - Map Enhancements
+> **Note:** Timelines reflect BMAD Method + Claude Code (AI-assisted development)
+
+## 6.1 Phase 1 — Core Implementation
+
+### Epic 1: Map Overlay Foundation — 2 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 1.1 iQ button activation logic | 0.25 |
+| 1.2 Subject pin ("S" marker) | 0.25 |
+| 1.3 Comp pins with price labels | 0.5 |
+| 1.4 Map view integration | 0.5 |
+| 1.5 Loading/error states | 0.5 |
+
+### Epic 2: ABC Summary Panel — 1.5 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 2.1 Property column (A) logic | 0.5 |
+| 2.2 Lot column (B) logic | 0.5 |
+| 2.3 Location column (C) logic | 0.5 |
+
+### Epic 3: KEEP/REMOVE Logic — 2 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 3.1 Comp card component | 0.5 |
+| 3.2 Match/mismatch bullet generation | 0.5 |
+| 3.3 WHY KEPT/REMOVED summaries | 0.5 |
+| 3.4 Confidence badge assignment | 0.5 |
+
+### Epic 4: Selection & Actions — 1.5 hrs (0.25 day)
+
+| Task | Hours |
+|------|-------|
+| 4.1 Checkbox selection | 0.5 |
+| 4.2 Bulk actions (Keep/Remove selected) | 0.5 |
+| 4.3 Finalize workflow | 0.5 |
+
+### Timeline Summary (Phase 1)
+
+| Phase | Duration | Deliverable |
+|-------|----------|-------------|
+| Epic 1: Map Foundation | 0.25 day | Pins visible |
+| Epic 2: ABC Summary | 0.25 day | 3 columns live |
+| Epic 3: KEEP/REMOVE | 0.25 day | Cards with explanations |
+| Epic 4: Selection | 0.25 day | Actions working |
+| **TOTAL** | **1 day** | **Map overlay live** |
+
+---
+
+## 6.2 Phase 2 — Enhancements Backlog
+
+### Map Enhancements (0.5 day if needed)
 - [ ] Tract boundary polygons overlay
 - [ ] Distance radius rings (0.25mi, 0.5mi, 1mi)
 - [ ] School district boundaries (toggle)
 - [ ] Micro-market barrier highlighting
 
-## 6.2 Phase 2 - Interaction Enhancements
+### Interaction Enhancements (0.5 day if needed)
 - [ ] Bidirectional pin ↔ card highlighting
 - [ ] Pin hover previews
 - [ ] Drag-and-drop KEEP ↔ REMOVE
 - [ ] Comp card expand/collapse
 
-## 6.3 Phase 2 - Analysis Enhancements
+### Analysis Enhancements (0.25 day if needed)
 - [ ] Comp Set Strength badge (Strong/Moderate/Weak)
 - [ ] Filter expansion recommendations when < 6 comps
 - [ ] Redundancy pruning notifications when > 12 comps
@@ -476,6 +529,7 @@ interface CompMapOverlay {
 | • Current UI structure documented above |
 | • TypeScript schemas match actual data |
 | • QA checklist with current vs TODO items |
+| • **Phase 1: 1 day with BMAD + Claude Code** |
 | • Phase 2 backlog prioritized |
 | • ABC Summary follows ABCD model from parent PRD |
 | • KEEP/REMOVE logic matches comp discipline rules |
