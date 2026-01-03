@@ -7,30 +7,29 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | AMD1 (AM Deal Support Bot) |
+| **Bot ID** | MGT2 (AM Deal Support) |
 | **Category** | Deal Intelligence / Pipeline Management |
 | **Priority** | P1 — Core Feature |
 | **Primary User** | Acquisition Manager (AM) |
 | **Secondary User** | AA (Phase 2 - personal pipeline view) |
 | **UI Location** | FlipIQ → My Deals Tab → iQ Button |
 | **Trigger Method** | iQ Button click (AM role-gated) |
-| **Integration Points** | NC1, PC1, IAMaster, Dialpad, Google Sheets |
+| **Integration Points** | D3, D2, D1, Dialpad, Google Sheets |
 | **Handoff To** | Eric (PM) / Nate (CTO) / Faizal (UI) |
 
 ---
 
 ## CRITICAL: Bot Relationship Clarification
 
-> ⚠️ **AMD1 is an AGGREGATION bot that CONSUMES data from other iQ bots:**
+> ⚠️ **MGT2 is an AGGREGATION bot that CONSUMES data from other iQ bots:**
 >
-> | Source Bot | Data Consumed | AMD1 Use |
+> | Source Bot | Data Consumed | MGT2 Use |
 > |------------|---------------|----------|
-> | **NC1** (Notes & Communication) | Agent sentiment, engagement tags, patterns | Propensity score, response detection |
-> | **PC1** (Post-Call Bot) | Call quality scores, conversation progression | Propensity calculation |
-> | **IAMaster** (Investment Analysis) | ARV, Rehab, Comps, Wholesale | Checklist verification |
-> | **D2** (Agent Bot) | Agent profile, ISC, transaction history | AA expertise tracking |
+> | **D3** (Notes & Communication) | Agent sentiment, engagement tags, patterns | Propensity score, response detection |
+> | **D2** (Post-Call Bot) | Call quality scores, conversation progression | Propensity calculation |
+> | **D1** (Investment Analysis) | ARV, Rehab, Comps, Wholesale | Checklist verification |
 >
-> AMD1 does NOT duplicate these bots' work — it aggregates their outputs for AM-level decision support.
+> MGT2 does NOT duplicate these bots' work — it aggregates their outputs for AM-level decision support.
 
 ---
 

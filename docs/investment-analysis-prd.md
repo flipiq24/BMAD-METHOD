@@ -6,7 +6,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | IAMaster |
+| **Bot ID** | D1 (Investment Analysis) |
 | **Category** | Investment |
 | **Priority** | P0 — Critical Path |
 | **Primary User** | Acquisition Associate (AA) |

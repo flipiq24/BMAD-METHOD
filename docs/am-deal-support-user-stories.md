@@ -12,7 +12,7 @@
 | **Total User Stories** | 28 |
 | **Primary User** | Acquisition Manager (AM) |
 | **Secondary Users** | AA (Phase 2) |
-| **Dependencies** | NC1, PC1, IAMaster, D2, Dialpad, Google Sheets |
+| **Dependencies** | D3, D2, D1, Dialpad, Google Sheets |
 
 ---
 

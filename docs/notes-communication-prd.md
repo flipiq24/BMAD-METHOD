@@ -7,27 +7,27 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | NC1 |
+| **Bot ID** | D3 (Notes and Communication) |
 | **Category** | Deal Context / Communication |
 | **Priority** | P1 — Core Feature |
 | **Primary User** | Acquisition Associate (AA) |
 | **UI Location** | PIQ → Property Panel → Notes Tab & Agent Profile → Agent Notes |
 | **Trigger Method** | Property open / Agent profile open / Ask iQ query |
-| **Integration Points** | Dialpad, Gmail/Outlook, Agent365, PC1 (Post-Call Bot), OpenAI/Claude |
+| **Integration Points** | Dialpad, Gmail/Outlook, Agent365, D2 (Post-Call Bot), OpenAI/Claude |
 | **Handoff To** | Eric (PM) / Nate (CTO) / Faizal (UI) |
 
 ---
 
 ## CRITICAL: Bot Relationship Clarification
 
-> ⚠️ **NC1 and PC1 (Post-Call Bot) are COMPLEMENTARY, not competing:**
+> ⚠️ **D3 and D2 (Post-Call Bot) are COMPLEMENTARY, not competing:**
 >
 > | Bot | Timing | Purpose |
 > |-----|--------|---------|
-> | **PC1** | AFTER each call | Immediate note extraction from transcript |
-> | **NC1** | BEFORE calls | Aggregates ALL history, provides patterns and context |
+> | **D2** | AFTER each call | Immediate note extraction from transcript |
+> | **D3** | BEFORE calls | Aggregates ALL history, provides patterns and context |
 >
-> NC1 consumes PC1's output as one of its data sources. They work together.
+> D3 consumes D2's output as one of its data sources. They work together.
 
 ---
 

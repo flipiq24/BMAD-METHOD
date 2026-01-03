@@ -12,7 +12,7 @@
 | **Total User Stories** | 32 |
 | **Primary User** | Acquisition Associate (AA) |
 | **Secondary Users** | Team Manager |
-| **Dependencies** | Dialpad, Agent365, PC1 (Post-Call Bot), OpenAI/Claude |
+| **Dependencies** | Dialpad, Agent365, D2 (Post-Call Bot), OpenAI/Claude |
 
 ---
 

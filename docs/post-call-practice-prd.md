@@ -7,7 +7,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | PC1 |
+| **Bot ID** | D2 (Post Call and Practice) |
 | **Category** | Training / Performance |
 | **Priority** | P1 — Core Feature |
 | **Primary User** | Acquisition Associate (AA) |

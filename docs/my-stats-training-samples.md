@@ -8,7 +8,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | MGT3 |
+| **Bot ID** | MGT1 (My Stats) |
 | **Total Samples** | 12 |
 | **Coverage** | All 5 Epics |
 | **Purpose** | AI training data for performance coaching, alerts, classification, and pattern detection |

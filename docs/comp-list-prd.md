@@ -6,7 +6,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | C3 (List Grouping Bot) |
+| **Bot ID** | C3 (Comps > List) |
 | **Category** | Comps / Analysis |
 | **Priority** | P1 — Core Feature |
 | **Primary User** | Acquisition Associate (AA) |

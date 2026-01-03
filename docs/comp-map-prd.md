@@ -6,8 +6,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Feature ID** | C-OVERLAY-MAP |
-| **Parent Bot** | C-OVERLAY (Comp Analysis Bot) |
+| **Bot ID** | C1 (Comps > Map) |
 | **Category** | Comps / Analysis / Map View |
 | **Priority** | P0 - Critical Path |
 | **Primary User** | Acquisition Associate (AA) |

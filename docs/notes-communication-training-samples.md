@@ -8,7 +8,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | NC1 |
+| **Bot ID** | D3 (Notes and Communication) |
 | **Total Samples** | 12 |
 | **Coverage** | All 6 Epics |
 | **Purpose** | AI training data for note aggregation, pattern detection, and context generation |

@@ -7,7 +7,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | MGT3 (My Stats Bot) |
+| **Bot ID** | MGT1 (My Stats) |
 | **Category** | Management / AA Performance |
 | **Priority** | P0 — Critical Path |
 | **Primary Users** | AA (Self-Coaching) + AM/Principal (Assessment) |

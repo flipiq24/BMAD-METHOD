@@ -8,7 +8,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Bot ID** | AMD1 |
+| **Bot ID** | MGT2 (AM Deal Support) |
 | **Total Samples** | 10 |
 | **Coverage** | All 6 Epics |
 | **Purpose** | AI training data for propensity scoring, pipeline analysis, and AM workflows |

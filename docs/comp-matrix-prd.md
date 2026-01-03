@@ -4,11 +4,14 @@
 
 ---
 
-**Status:** P0 – Critical Path
-**Owner:** FlipIQ
-**Primary User:** Acquisition Associate (AA)
-**UI Location:** PIQ → Comps → Matrix View
-**Dependencies:** Existing E-Value / Matrix / Map / List logic (UNCHANGED)
+| Field | Value |
+|-------|-------|
+| **Bot ID** | C2 (Comps > Matrix) |
+| **Category** | Comps / Analysis |
+| **Priority** | P0 — Critical Path |
+| **Primary User** | Acquisition Associate (AA) |
+| **UI Location** | PIQ → Comps → Matrix View |
+| **Dependencies** | Existing E-Value / Matrix / Map / List logic (UNCHANGED) |
 
 ---
 
