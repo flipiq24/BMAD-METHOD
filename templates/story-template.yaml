@@ -1,0 +1,52 @@
+# BMAD User Story Template
+# Copy this template for each user story
+
+story:
+  id: "[EPIC-ID]-[STORY-NUM]"
+    title: "[Brief descriptive title]"
+      epic: "[Parent epic name]"
+        bot_id: "[Associated bot ID]"
+
+            # User Story Format
+              as_a: "[User role]"
+                i_want: "[Action/capability]"
+                  so_that: "[Business value/outcome]"
+
+                      # Acceptance Criteria (Gherkin format)
+                        acceptance_criteria:
+                            - given: "[Initial context/state]"
+                                  when: "[Action taken]"
+                                        then: "[Expected outcome]"
+
+                                            # Technical Requirements
+                                              technical:
+                                                  fum_reads: []
+                                                      fum_writes: []
+                                                          api_calls: []
+                                                              ui_components: []
+
+                                                                  # Story Metadata
+                                                                    metadata:
+                                                                        priority: "[P0/P1/P2]"
+                                                                            points: null
+                                                                                sprint: null
+                                                                                    status: "backlog"
+                                                                                        assignee: null
+
+                                                                                              # Dependencies
+                                                                                                dependencies:
+                                                                                                    blocked_by: []
+                                                                                                        blocks: []
+                                                                                                            
+                                                                                                              # Definition of Done
+                                                                                                                definition_of_done:
+                                                                                                                    - "Code complete and reviewed"
+                                                                                                                        - "Unit tests passing"
+                                                                                                                            - "Integration tests passing"
+                                                                                                                                - "FUM integration verified"
+                                                                                                                                    - "UI matches design"
+                                                                                                                                        - "Documentation updated"
+                                                                                                                                            - "Product owner approved"
+                                                                                                                                            
+                                                                                                                                              notes: |
+                                                                                                                                                  Additional context or implementation notes
